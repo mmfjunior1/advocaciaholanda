@@ -471,8 +471,15 @@ $(document).ready(function(){
 		}
 		$.ajax({
 			url		: '/admin/'+actionForm+'/'+action,
-			method 	: 'POST',
-			data	: params,
+			type: 'post',
+	        //dataType: "JSON",
+	        data: new FormData(document.getElementById('formCadtextos')),
+	        processData: false,
+	        contentType: false,
+			
+			
+			//method 	: 'POST',
+			//data	: params,
 			async	:false,
 			beforeSend: function(){
 				$("#divProcessando").show();

@@ -18,15 +18,18 @@ class UsuarioSistemaController extends BaseController
     {
     	$array				= array();
     	$dado				= $request->dado;
+    	$array['login']		= $dado;
+    	$array['nome']		= $dado;
+    	
     	if(count($array) > 0)
     	{
     		$usuarios 		= UserSystem::select('*')
-    		->orWhere(function ($usuarios) use ($array){
+    		->where(function ($usuarios) use ($array){
     			foreach($array as $field=>$value)
     			{
-    				$usuarios->orWhere($field,'ilike','%'.$value.'%');
+    				$usuarios->where($field,'ilike','%'.$value.'%');
     			}
-    		})->paginate(10)->appends(['dado'=>$dado]);
+    		})->paginate(1)->appends(['dado'=>$dado]);
     	}
     	else
     	{

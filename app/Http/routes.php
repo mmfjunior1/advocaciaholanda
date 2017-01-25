@@ -21,58 +21,22 @@ Route::group(['middleware' => 'administrator'], function () {
 		return view('contents.indexAdminContent');
 	});
 	
-	Route::any('admin/imoveis',							'SearchController@adminImoveisIndex');;
+	Route::get('admin/sair',							'LoginController@logoutAdmin');
 	
-	Route::any('admin/imoveis/search',					'SearchController@adminImoveisIndex');;
+	Route::any('admin/textos',							'TextoController@index');
 	
-	Route::get('admin/imoveis/cadastro',				'SearchController@create');;
+	Route::get('admin/textos/show/{id}',				'TextoController@show');
 	
-	Route::post('admin/imoveis/gravar',					'SearchController@store');;
+	Route::post('admin/textos/gravar',					'TextoController@store');
 	
-	Route::get('admin/imoveis/show/{id}',				'SearchController@show');;
+	Route::get('admin/textos/cadastro',					'TextoController@create');
 	
-	Route::any('admin/imoveis/cancelar',				'SearchController@cancelar');;
+	Route::any('admin/textos/excluir',					'TextoController@delete');
 	
-	Route::any('admin/imoveis/cadfotos',				'SearchController@storeFotos');;
+	Route::post('admin/textos/cancelar',				'TextoController@cancelar');
 	
-	Route::any('admin/imoveis/cliente',					'SearchController@getClienteImovel');;
+	Route::post('admin/textos/cancelar',				'TextoController@cancelar');
 	
-	Route::post('admin/imoveis/excluir',				'SearchController@delete');;
-	
-	Route::any('admin/imoveis/enderecoMaps',			'SearchController@getEnderecoMaps');;
-	
-	Route::get('admin/clientes', 						'ClienteController@index');
-	
-	Route::any('admin/proprietarios', 					'ClienteController@index');
-	
-	Route::any('admin/clientes/search', 				'ClienteController@index');
-	
-	Route::any('admin/proprietarios/search', 			'ClienteController@index');
-	
-	Route::get('admin/clientes/cadastro',				'ClienteController@create');
-	
-	Route::get('admin/proprietarios/cadastro',			'ClienteController@create');
-	
-	Route::post('admin/clientes/gravar', 				'ClienteController@store');
-	
-	Route::post('admin/clientes/cancelar',				'ClienteController@cancelar');
-	
-	Route::any('admin/clientes/show/{id}',				'ClienteController@show');
-	
-	Route::any('admin/proprietarios/show/{id}',			'ClienteController@show');
-	
-	Route::post('admin/clientes/excluir',				'ClienteController@delete');
-	
-	Route::any('admin/clientes/buscaCep',				'ClienteController@buscaCep');
-	
-	Route::any('admin/mensagem',						'MensagemController@index');
-	
-	Route::any('admin/mensagem/show/{id}',				'MensagemController@show');
-	
-	Route::post('admin/mensagem/excluir',				'MensagemController@delete');
-	
-	Route::post('admin/mensagem/gravar',				'MensagemController@enviar');
-	//Rotas possíveis para cadastro de usuários
 	Route::any('admin/usuarios',						'UsuarioSistemaController@index');
 	
 	Route::get('admin/usuarios/show/{id}',				'UsuarioSistemaController@show');
@@ -86,30 +50,6 @@ Route::group(['middleware' => 'administrator'], function () {
 	Route::post('admin/usuarios/cancelar',				'UsuarioSistemaController@cancelar');
 	
 	Route::post('admin/usuarios/cancelar',				'UsuarioSistemaController@cancelar');
-	
-	Route::get('admin/sair',							'LoginController@logoutAdmin');
-	
-	Route::any('admin/aluguel/index',					'AluguelController@index');
-	
-	Route::any('admin/aluguel',							'AluguelController@index');
-	
-	Route::any('admin/docs',							'ClienteController@clientesDocs');
-	
-	Route::any('admin/docs/delDoc',						'ClienteController@deleteDoc');
-	
-	Route::any('admin/docs/show/{id}',					'ClienteController@clienteDoc');
-	
-	Route::post('/admin/docs/cadDocs',					'ClienteController@storeDocs');
-	
-	Route::any('admin/aluguel/show/{id}',				'AluguelController@show');
-	
-	Route::post('admin/aluguel/alteraAluguel',			'AluguelController@alteraAluguel');
-	
-	Route::post('admin/aluguel/delAluguel',				'AluguelController@delete');
-	
-	Route::post('/admin/aluguel/cadAluguel',			'AluguelController@store');
-	
-	Route::post('admin/aluguel/cancelar',				'AluguelController@alteraAluguel');
 	
 	
 });

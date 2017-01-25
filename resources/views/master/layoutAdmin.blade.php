@@ -93,12 +93,7 @@
         <div class="col-sm-3 col-md-2 sidebar">
           <ul class="nav nav-sidebar">
             <li class="active"><a href="#">Menu <span class="sr-only">(current)</span></a></li>
-            <li><a href="/admin/proprietarios">Cadastro de proprietários</a></li>
-            <li><a href="/admin/clientes">Cadastro de inquilinos</a></li>
-            <li><a href="/admin/imoveis">Cadastro de imóveis</a></li>
-            <li><a href="/admin/aluguel">Gestão de alugueis</a></li>
-            <li><a href="/admin/docs">Gestão de documentos</a></li>
-            <li><a href="/admin/mensagem">Mensagens</a></li>
+            <li><a href="/admin/textos">Textos para o blog</a></li>
             <li class="active"><a href="#">Segurança <span class="sr-only">(current)</span></a></li>
             <li><a href="/admin/usuarios">Usuários do sistema</a></li>
           </ul>
