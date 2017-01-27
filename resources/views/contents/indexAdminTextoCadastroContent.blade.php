@@ -58,8 +58,12 @@
 				 <form name="formCadtextos" id="formCadtextos" class="formCad" action="/admin/textos/gravar" method="post" enctype="multipart/form-data">
           	<input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
           	<div class="form-group">
-          		<label>Imagem de cabeçalho do texto</label>
-          		<input type="file" placeholder="Você pode incluir uma imagem de cabeçalho" name="imagem" id="imagem">
+          		@if(isset($search->imagem))
+          			<img src="/{{$search->imagem}}" />
+          		@else
+          			<label>Imagem de cabeçalho do texto</label>
+          			<input type="file" placeholder="Você pode incluir uma imagem de cabeçalho" name="imagem" id="imagem">
+          		@endif
           	</div>
           	<div class="form-group">
           		<input type="text" class="form-control " placeholder="Título" name="titulo" id="titulo" size="45" value="{{{@$search->titulo}}}">
@@ -99,8 +103,7 @@
           	<div class="form-group">
 		    <div class="col-xs-offset-0 col-sm-10 col-md-10 col-xs-11">
 			      	<button type="button" id="btnCadCli" class="btn btn-primary btnCad" >Gravar</button>
-	          		<button type="button" id="btnCancCli" class="btn btn-warning btnCad">Cancelar</button>
-	          		<a class="btn btn-default" href="/admin/usuarios">Voltar</a>
+	          		<a class="btn btn-default" href="/admin/textos">Cancelar e voltar</a>
 		    </div>
 		  </div>
           <input type="hidden" name="id" id="id" value="{{{@$search->id}}}"> 

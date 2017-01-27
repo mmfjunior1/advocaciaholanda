@@ -183,7 +183,7 @@ class TextoController extends BaseController
 	    		$dados['imagem']	= $gravaImagem;
 	    		
 	    		$create	= Texto::create($dados);
-	    		
+	    			    		
 	    		return response()->json(['msg'=>'<strong>Operação concluída</strong>','statusOperation'=>true,'id'=>$create->id]);
 	    		
 	    	}
@@ -250,10 +250,15 @@ class TextoController extends BaseController
     public function delete( Request $request )
     {
     	$resultSet	= Texto::find((int)$request->id);
+    	
     	if(count($resultSet) > 0)
     	{
     		try
-    		{	
+    		{
+    			if(file_exists($resultSet->imagem))
+    			{
+    				unlink($resultSet->imagem);
+    			}
     			$delete	= $resultSet->delete();
     			return response()->json(['msg'=>'<strong>Operação concluída</strong>','statusOperation'=>true,'id'=>0]);
     		}

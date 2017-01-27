@@ -1,3 +1,148 @@
+
+function resetModal()
+{
+	return $(".modal-footer").html('<button type="button" class="btn btn-default" data-dismiss="modal" id="btnOkModal">Ok</button>');
+}
+
+function excluirBlog(id)
+{
+	$.ajax({
+		url		: '/admin/textos/excluir',
+		method 	: 'POST',
+		data	: 'id='+id+'&_token='+$("#_token").val(),
+		beforeSend: function(){
+			$("#divProcessando").show();
+		},
+	}).done(function(response){
+		$("#divProcessando").hide();
+		var textoErro = '';
+		if(response.statusOperation == true)
+		{
+			return location.reload();
+		}
+		
+		$.each(response,function(field,value)
+		{
+			if(field != 'statusOperation' && field !='id' && field !='redirect' && field!='dados')
+			{
+				textoErro+=value+"<br>";
+			}
+		});
+		
+		if(textoErro!='')
+		{
+			$(".modal-body").html(textoErro);
+			disparaModal();
+		}
+		
+	}).error(function(){
+            $(".modal-body").html('<strong style="color:red">Houve uma falha ao pesquisar o CEP. Tente novamente.</strong>');
+            
+            $("#divProcessando").hide();
+            
+            disparaModal();
+    });
+}
+function disparaModal()
+{
+	resetModal();
+	return setTimeout(function(){
+    	$("#myModal").modal();
+    },1000);
+}
+function msgModal(msg, error)
+{
+	if(error)
+	{
+		$(".modal-body").html('<strong style="color:red">'+msg+'</strong>');
+	}
+	if(!error)
+	{
+		$(".modal-body").html('<strong>'+msg+'</strong>');
+	}
+    return $('#myModal').modal();
+}
+
+function zerarCampos(form)
+{
+	$.each($('#'+form+' :input[type="text"], #'+form+' :input[type="hidden"]'),function()
+	{
+		var obj	= this;
+		if(obj.name !='_token')
+		{
+			$(obj).val('');
+		}
+	});
+	return;
+}
+
+function alimentaCamposAjax(response)
+{
+	$.each(response,function(field,value)
+	{
+		$("#"+field).val(value);
+	});
+}
+
+function buscaCliente(object)
+{
+	var valor = '';
+	var inquilino = '';
+	if(object)
+	{
+		var obj 		= object;
+		
+		inquilino	= obj.name.split("_");
+		
+		inquilino		= inquilino[1]!=undefined?'_'+inquilino[1]:'';
+		
+		valor = obj.value;
+		
+		if(valor == '')
+		{
+			$("#id_cliente,#nome").val('');
+			return false;
+		}
+	}
+	
+	if(valor == '' && $("#idcliente").val() == '')
+	{
+		return false;
+	}
+	$.ajax({
+		url		: '/admin/imoveis/cliente',
+		method 	: 'POST',
+		data	: 'cpf='+valor+'&_token='+$("#_token").val()+'&id_cliente='+$("#idcliente").val(),
+		beforeSend: function(){
+			$("#divProcessando").show();
+		},
+	}).done(function(response){
+		$("#divProcessando").hide();
+		var textoErro = '';
+		if(response.cpf == undefined)
+		{
+			$(".modal-body").html("Nenhum cliente foi encontrado.");
+			$('#myModal').modal();
+			$("#cpf,#nome").val('');
+			return false;
+		}
+		if(response !='')
+		{
+			$.each(response,function(field,value)
+			{
+				console.log(field+inquilino+"="+value)
+				$("#"+field+inquilino).val(value);
+			});
+			
+		}
+		
+	}).error(function(){
+            $(".modal-body").html('<strong style="color:red">Houve uma falha ao pesquisar o CEP. Tente novamente.</strong>');
+            $("#myModal").modal();
+            $("#divProcessando").hide();
+    });
+}
+
 $(document).ready(function(){
 	window.closeModal = function(){
 		return $('#myModal1').modal('hide');
@@ -442,6 +587,18 @@ $(document).ready(function(){
                 });
 
 	});
+	$(".delBlog").click(function(){
+		var obj	= this.id;
+		obj		= parseInt(obj.replace('blog',''));
+		$(".modal-body").html("Deseja mesmo excluir essa publicação?");
+		$(".modal-footer").html('<button type="button" class="btn btn-danger" data-dismiss="modal" onclick="excluirBlog('+obj+')">Sim</button><button type="button" class="btn btn-default btnNo" data-dismiss="modal" >Não</button>')
+		$('#myModal').modal();
+		$(".btnNo").unbind("click");
+		$(".btnNo").click(function(){
+			return resetModal();
+		});
+		return;
+	});
 	
 	$(".btnCad").click(function(){
 		var botamForm 	= $(this);
@@ -473,7 +630,7 @@ $(document).ready(function(){
 			url		: '/admin/'+actionForm+'/'+action,
 			type: 'post',
 	        //dataType: "JSON",
-	        data: new FormData(document.getElementById('formCadtextos')),
+	        data: new FormData(document.forms[0]),
 	        processData: false,
 	        contentType: false,
 			
@@ -559,96 +716,3 @@ $(document).ready(function(){
 		return $('#modalMaps').modal();
 	});
 });
-
-function msgModal(msg, error)
-{
-	if(error)
-	{
-		$(".modal-body").html('<strong style="color:red">'+msg+'</strong>');
-	}
-	if(!error)
-	{
-		$(".modal-body").html('<strong>'+msg+'</strong>');
-	}
-    return $('#myModal').modal();
-}
-
-function zerarCampos(form)
-{
-	$.each($('#'+form+' :input[type="text"], #'+form+' :input[type="hidden"]'),function()
-	{
-		var obj	= this;
-		if(obj.name !='_token')
-		{
-			$(obj).val('');
-		}
-	});
-	return;
-}
-
-function alimentaCamposAjax(response)
-{
-	$.each(response,function(field,value)
-	{
-		$("#"+field).val(value);
-	});
-}
-
-function buscaCliente(object)
-{
-	var valor = '';
-	var inquilino = '';
-	if(object)
-	{
-		var obj 		= object;
-		
-		inquilino	= obj.name.split("_");
-		
-		inquilino		= inquilino[1]!=undefined?'_'+inquilino[1]:'';
-		
-		valor = obj.value;
-		
-		if(valor == '')
-		{
-			$("#id_cliente,#nome").val('');
-			return false;
-		}
-	}
-	
-	if(valor == '' && $("#idcliente").val() == '')
-	{
-		return false;
-	}
-	$.ajax({
-		url		: '/admin/imoveis/cliente',
-		method 	: 'POST',
-		data	: 'cpf='+valor+'&_token='+$("#_token").val()+'&id_cliente='+$("#idcliente").val(),
-		beforeSend: function(){
-			$("#divProcessando").show();
-		},
-	}).done(function(response){
-		$("#divProcessando").hide();
-		var textoErro = '';
-		if(response.cpf == undefined)
-		{
-			$(".modal-body").html("Nenhum cliente foi encontrado.");
-			$('#myModal').modal();
-			$("#cpf,#nome").val('');
-			return false;
-		}
-		if(response !='')
-		{
-			$.each(response,function(field,value)
-			{
-				console.log(field+inquilino+"="+value)
-				$("#"+field+inquilino).val(value);
-			});
-			
-		}
-		
-	}).error(function(){
-            $(".modal-body").html('<strong style="color:red">Houve uma falha ao pesquisar o CEP. Tente novamente.</strong>');
-            $("#myModal").modal();
-            $("#divProcessando").hide();
-    });
-}
