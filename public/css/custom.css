@@ -17,7 +17,7 @@ html,body {
 
 body {
 	font-family: 'Open Sans', sans-serif;
-	background-color:#F0F0F0;
+
 }
 
 .clr{clear:both;}
@@ -75,9 +75,7 @@ button:active {
 	text-decoration:none;
 }
 
-p {
-	margin: 0 0 20px;
-}
+
 
 h1, 
 h2, 
@@ -420,17 +418,16 @@ body button.btn-warning:focus {
 	box-shadow:0 1px 1px 0 rgba(0,0,0,0.2);
     border:0;
     border-radius: 0;
-    margin-bottom: 20px;
+    margin-bottom: 7px;
 }
 
 .panel-heading {
     border-radius:0;
-    padding: 12px 15px;
 }
 
 .panel-default > .panel-heading {
-    background-color: #E5E5E5;
-    color: #555555;
+    background-color: #0D2D5D;
+	color: #fbf1f1;
 	border-color:rgba(0,0,0,0.1);
 }
 
@@ -469,7 +466,7 @@ body button.btn-warning:focus {
 
 body .panel-default .panel-title > a,
 body .panel-default .panel-title > a:after {
-	color: #555555;
+	color: #f5f0f0;
 }
 
 .panel-title a:after {
@@ -478,7 +475,6 @@ body .panel-default .panel-title > a:after {
     font-style: normal;
     font-weight: normal;
     line-height: 1;
-	content:"\f068";
 	color:#FFFFFF;
 	float:right;
 	margin:2px 0 0;
@@ -1047,42 +1043,10 @@ body .brands.main li a:hover {
 	JUMBOTRON
 ------------------------------*/
 
-.jumbotron {
-	padding:0;
-	border-bottom:0;
-	margin:0;
-	background-color:transparent;
-}
 
-.jumbotron6,
-.jumbotron3 {
-	background-color:transparent;
-	padding:0;
-}
 
-.jumbotron6 .item,
-.jumbotron3 .item {
-	height:450px;
-	background-size:100%;
-	background-repeat:no-repeat;
-}
 
-.jumbotron6 h2,
-.jumbotron5 h2,
-.jumbotron3 h2 {
-	color:#FFFFFF;
-	padding:7px 14px;
-	margin:70px 30px 40px;
-	font-size:28px;
-	text-transform:uppercase;
-	font-weight:bold;
-	line-height:40px;
-	display:inline-block;
-}
-
-.jumbotron6 h3,
-.jumbotron5 h3,
-.jumbotron3 h3 {
+.jumbotron5 h3{
 	padding:7px 14px;
 	margin:0 30px 20px;
 	font-size:24px;
@@ -1092,140 +1056,11 @@ body .brands.main li a:hover {
 	display:inline-block;
 }
 
-/* JUMBOTRON 1 */
-
-#jumbotron-slider.hidden-control.owl-theme .owl-controls .owl-buttons div,
-#jumbotron-eshop-slider.hidden-control.owl-theme .owl-controls .owl-buttons div {
-    opacity:0;
-	background-color:transparent;
-	color: #FFFFFF;
-	transition-duration:0s;
-	border:0;
-	font-size:60px;
-}
-
-#jumbotron-slider.hidden-control.owl-theme .owl-controls .owl-buttons div:hover,
-#jumbotron-eshop-slider.hidden-control.owl-theme .owl-controls .owl-buttons div:hover {
-	background-color:transparent;
-}
-
-#jumbotron-slider.owl-carousel .owl-wrapper-outer,
-#jumbotron-eshop-slider.owl-carousel .owl-wrapper-outer {
-    box-shadow:none;
-}
-
-/* JUMBOTRON 2 */
-
-.jumbotron2 {
-	padding:100px 0;
-	background-position:center center;
-}
-
-.jumbotron2 h2 {
-	font-size: 80px;
-	text-transform: uppercase;
-	color: #FFFFFF;
-	font-weight: 700;
-	margin: 0;
-	text-align:left;
-}
-
-.jumbotron2 h2 small {
-	font-size: 50px;
-	color: #FFFFFF;
-	font-weight: 300;
-	margin: 30px 0 0;
-	display:block;
-}
-
-/* JUMBOTRON 3 */
-
-.jumbotron3 {
-	border-bottom:0;
-}
-
-#jumbotron-eshop-slider .owl-pagination {
-    position:absolute;
-	left:50%;
-	width:300px;
-	margin-left:-150px;
-	bottom:20px;
-}
-
-.jumbotron3 #slide-1 {
-	background-image: url(../images/bg6.jpg); 
-	background-position:right bottom;
-	text-align:center;
-}
-
-.jumbotron3 #slide-2 {
-	background-image: url(../images/bg7.jpg); 
-	background-position:right -170px;
-}
-
-.jumbotron3 h2 {
-	font-size: 80px;
-	text-transform: uppercase;
-	color: #FFFFFF;
-	font-weight: 700;
-	margin: 90px 0 40px;
-	padding:20px;
-	line-height:90px;
-}
-
-.jumbotron3 #slide-2 h2 {
-	font-size: 60px;
-	padding:10px 15px;
-}
-
-.jumbotron3 h3 {
-	margin:0 0 20px;
-}
-
-/* JUMBOTRON 4 */
-
-.jumbotron4 {
-	padding:150px 0;
-	background-position:center center;
-}
-
-.jumbotron4 h2 {
-	color:#FFFFFF;
-	font-size:60px;
-	font-weight:700;
-	margin:0 0 50px;
-}
-.jumbotron-left-title {
-	color:#FFFFFF;
-	font-size:43px;
-	font-weight:700; line-height:50px;
-	margin:0 0 30px;
-}
-
-.jumbotron4 .input-group .form-control {
-    height: 80px;
-	border:0;
-	font-size:26px;
-	padding:0 20px;
-}
-
-.jumbotron4 .input-group .btn {
-    font-size: 26px;
-    padding: 20px 13px 19px;
-	background-color:#444444;
-}
-
-.jumbotron4 .input-group .btn:hover,
-.jumbotron4 .input-group .btn:focus,
-.jumbotron4 .input-group .btn.active {
-	border-color:#333333;
-	background-color:#333333;
-}
 
 /* JUMBOTRON 5 */
 
 .jumbotron5 {
-	background-image: url("../images/casa-propria-2.jpg");
+	background-image: url("../images/direito1.jpeg");
 	padding:0;
 	height:500px;
 	background-position:center center;
@@ -1373,7 +1208,7 @@ body .jumbotron5 .btn:first-child:hover {
 .jumbotron5.contato
 {
 	
-	background-image: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.20)), url("../images/casa-propria-2.jpg");
+	background-image: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.20)), url("../images/direito2.jpeg");
 }
 .btn-download {
 	width:170px;
@@ -2059,7 +1894,7 @@ body #section-features .feature:hover i {
 /*------------------------------
 	FOOTER
 ------------------------------*/
-
+/*
 footer {
 	background-color:#EAEAEA;
 	color:#555555;
@@ -2148,7 +1983,7 @@ footer .navbar-nav > li > a:hover {
 #latest-work-footer .overlay-wrapper:hover .overlay {
 	opacity:0.75;
 }
-
+*/
 /*------------------------------
 	COMMING SOON
 ------------------------------*/
@@ -5257,4 +5092,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#20c2a4', end
     display: block;
     margin: 20px 0 100px 11%;
     
+}
+.panel-heading h3
+{
+	
+	line-height: 0.7;
+}
+.panel-heading:hover
+{
+	color:red;
+	background:rgb(37, 126, 234);
 }

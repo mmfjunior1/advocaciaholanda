@@ -65,7 +65,7 @@ class TextoController extends BaseController
     	$obj				= $request->file('imagem');
     	if(!$obj)
     	{
-    		return true;
+    		return false;
     	}
     	$ext				= $obj->guessExtension();
     	
@@ -100,9 +100,9 @@ class TextoController extends BaseController
     				
    				list($width, $height) 	= getimagesize($caminhoArquivo);
     				
-   				if($width > 625)
+   				if($width > 2048)
    				{
-   					$percent	=  bcdiv(bcsub(100 ,(bcdiv( bcmul(625, 100,2),$width,2)),2),100,2);
+   					$percent	=  bcdiv(bcsub(100 ,(bcdiv( bcmul(2048, 100,2),$width,2)),2),100,2);
 
    					$newwidth 	=  $width - ($width * $percent);
     				
@@ -138,6 +138,39 @@ class TextoController extends BaseController
     	}
     	
     	return $caminhoArquivo;
+    }
+    
+    public function excluirImagem(Request $request)
+    {
+    	$resultSet	= Texto::find((int)$request->id);
+    	 
+    	if(count($resultSet) > 0)
+    	{
+    		
+    		try
+    		{
+    			if(file_exists($resultSet->imagem))
+    			{
+    				unlink($resultSet->imagem);
+    			}
+    	
+    			$dados['imagem'] = '';
+    			 
+    			$update = Texto::where('id',$request->id)->update($dados);
+    			
+    			if($update == 1)
+    			{
+    				return response()->json(['msg'=>'<strong>Operação concluída</strong>','statusOperation'=>true,'id'=>$request->id]);
+    			}
+    			return response()->json(['msg'=>'<strong>Nenhum registro foi atualizado. Tente novamente.</strong>','statusOperation'=>false,'id'=>$request->id]);
+    			 
+    		}
+    		catch(\Exception $e)
+    		{
+    			return response()->json(['msg'=>'<strong>Erro ao executar operação!</strong><br><div style="color:red;font-weight:bold">['.$e->getMessage().']','statusOperation'=>false,'id'=>0]);
+    		}
+    		return;
+    	}	
     }
     
     public function store(Request $request)
@@ -179,8 +212,10 @@ class TextoController extends BaseController
 	    		{
 	    			return $gravaImagem;	
 	    		}
-	    		
-	    		$dados['imagem']	= $gravaImagem;
+	    		if($gravaImagem)
+	    		{
+	    			$dados['imagem']	= $gravaImagem;
+	    		}
 	    		
 	    		$create	= Texto::create($dados);
 	    			    		
@@ -198,13 +233,15 @@ class TextoController extends BaseController
     		
     		$gravaImagem	= $this->gravaImagem($request);
     		
-    		if(!$gravaImagem)
+    		if(file_exists($resultSet->imagem) && $gravaImagem)
     		{
-    			return $gravaImagem;
+    			unlink($resultSet->imagem);
     		}
     		
-    		$dados['imagem']	= $gravaImagem;
-    		
+    		if($gravaImagem)
+    		{
+    			$dados['imagem']	= $gravaImagem;
+    		}
     		$update = Texto::where('id',$request->id)->update($dados);
     		
     		if($update == 1)

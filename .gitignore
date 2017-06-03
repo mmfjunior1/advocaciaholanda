@@ -1,0 +1,16 @@
+/bootstrap/
+/config/
+/database/
+/storage/
+/tests/
+/vendor/
+/artisan
+/composer.json
+/composer.lock
+/gulpfile.js
+/package.json
+/phpunit.xml
+/readme.md
+/server.php
+/teste.php
+/.env

@@ -1,6 +1,7 @@
 
 function resetModal()
-{
+{	
+	$("#myModal").close();
 	return $(".modal-footer").html('<button type="button" class="btn btn-default" data-dismiss="modal" id="btnOkModal">Ok</button>');
 }
 
@@ -142,6 +143,46 @@ function buscaCliente(object)
             $("#divProcessando").hide();
     });
 }
+function excluirImagem()
+{
+		$.ajax({
+			url		: '/admin/textos/excluirImagem',
+			method 	: 'POST',
+			data	: $("form").serialize(),
+			beforeSend: function(){
+				$("#divProcessando").show();
+			},
+		}).done(function(response){
+			var textoErro = '';
+			$("#divProcessando").hide();
+			if(response !='')
+			{
+					$.each(response,function(field,value)
+					{
+						if(field != 'statusOperation' && field !='id' && field !='redirect')
+						{
+							textoErro+=value+"<br>";
+						}
+					});
+					
+					if(textoErro!='')
+					{
+						$(".modal-body").html(textoErro);
+						$("#myModal").modal();
+					}
+					setTimeout(function(){
+						return location.reload();
+					},2000);
+									
+			}
+		}).error(function(){
+                        $(".modal-body").html('<strong style="color:red">Houve uma falha ao pesquisar o CEP. Tente novamente.</strong>');
+                        $("#myModal").modal();
+                        $("#divProcessando").hide();
+                });
+	
+	
+}
 
 $(document).ready(function(){
 	window.closeModal = function(){
@@ -155,15 +196,12 @@ $(document).ready(function(){
 		}
 		return history.back();
 	});
-	function incluirImovel()
-	{
-		var id_cliente = $("#id").val();
+	
+	$(".trashImg").click(function(){
 		
-		$("#myModal1 .modal-body").html("<iframe src='http://127.0.0.1:6386/admin/imoveis/cadastro?modal=1&id_pessoa="+id_cliente+"' width='100%' height='800px'></iframe>");
-		$("#myModal1 .modal-dialog").attr("style","width:100%");
-		$("#myModal1 modal").attr("style","height:100%");
-		$('#myModal1').modal();
-	}
+		return excluirImagem();
+	});
+	
 	function pesquisaGenerica(element,dados)
 	{
 		try{
@@ -656,10 +694,7 @@ $(document).ready(function(){
 						window.location.href = ''+response.redirect+'';	
 					})
 				}
-				if(response.id)
-				{
-					$("#id").val(response.id);
-				}
+				
 				if(response.id_imovel)
 				{
 					$("#id").val(response.id_imovel);
@@ -675,6 +710,15 @@ $(document).ready(function(){
 				{
 					$(".modal-body").html(textoErro);
 					$('#myModal').modal();
+					
+					if(response.id)
+					{
+						$("#id").val(response.id);
+						
+						setTimeout(function(){
+							return window.location.href = '/admin/'+actionForm+'/show/'+response.id;	
+						},2000);
+					}
 				}
 				//$("#btnCancCli").click();
 				

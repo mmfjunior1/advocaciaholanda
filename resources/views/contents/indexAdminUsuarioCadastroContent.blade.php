@@ -1,5 +1,5 @@
 @extends('master.layoutAdmin')
-@section('title', 'Imob - Licenciado para Imobiliária Shima')
+@section('title', 'Holanda')
 @section('content')
 		<style>
 			input.notEdit{

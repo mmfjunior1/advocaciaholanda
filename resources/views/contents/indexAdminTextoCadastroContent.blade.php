@@ -1,5 +1,5 @@
 @extends('master.layoutAdmin')
-@section('title', 'Imob - Licenciado para Imobiliária Shima')
+@section('title', 'Holanda')
 @section('content')
 		<style>
 			input.notEdit{
@@ -41,6 +41,10 @@
 				font-family: "Times New Roman", Times, serif;
 				font-weight:bold;
 			}
+			.trashImg:hover
+			{
+				cursor:pointer;
+			}
 			input[type="text"]
 			{
 				border:0px;
@@ -55,16 +59,23 @@
 		<script src="{{asset('tinymce/tinymce.min.js')}}"></script>
 		<div class="col-sm-9 col-sm-offset-2 col-md-10 col-md-offset-2 col-xs-10 main" >
           <h2 class="sub-header">Texto do blog</h2> 
-				 <form name="formCadtextos" id="formCadtextos" class="formCad" action="/admin/textos/gravar" method="post" enctype="multipart/form-data">
+		<form name="formCadtextos" id="formCadtextos" class="formCad" action="/admin/textos/gravar" method="post" enctype="multipart/form-data">
           	<input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
           	<div class="form-group">
-          		@if(isset($search->imagem))
-          			<img src="/{{$search->imagem}}" />
+          		@if(file_exists(@$search->imagem))
+          			<div style="width:100%;border:1px solid;">
+          			
+          				<img src="/{{$search->imagem}}" style="width: 100%" />
+          			</div>
+          			<br>
+          			<button type="button" class="btn btn-default trashImg"><span class="glyphicon glyphicon-trash"></span>&nbsp;Trocar imagem de cabeçalho</button>
+          			
           		@else
           			<label>Imagem de cabeçalho do texto</label>
           			<input type="file" placeholder="Você pode incluir uma imagem de cabeçalho" name="imagem" id="imagem">
           		@endif
           	</div>
+          	<hr>
           	<div class="form-group">
           		<input type="text" class="form-control " placeholder="Título" name="titulo" id="titulo" size="45" value="{{{@$search->titulo}}}">
           	</div>

@@ -35,6 +35,8 @@ Route::group(['middleware' => 'administrator'], function () {
 	
 	Route::post('admin/textos/cancelar',				'TextoController@cancelar');
 	
+	Route::post('admin/textos/excluirImagem',			'TextoController@excluirImagem');
+	
 	Route::post('admin/textos/cancelar',				'TextoController@cancelar');
 	
 	Route::any('admin/usuarios',						'UsuarioSistemaController@index');
@@ -93,17 +95,25 @@ Route::post("admin/logonSistema",						'UsuarioSistemaController@login');
 	
 Route::post("admin/login",								'LoginController@loginAdmin');
 
-Route::any('busca', 'SearchController@busca');
-
 Route::get('/', 'SearchController@home');
 
+Route::get('/inicio/{rota}', 'SearchController@home');
+
+Route::get('/areas-de-atuacao',function() {
+	return view('contents.atuacao');
+});
+
 Route::get('/index', function () {
-	return view('contents.indexContent');
+	return view('master.layout');
 });
 
 Route::get('/contato', function () {
 	return view('contents.contatoContent');
 });
+
+Route::get('/blog', 'BlogController@index');
+
+Route::get('/blog/noticias/{title}', 'BlogController@noticias');
 
 Route::post('/obrigado', function () {
 	return view('contents.sucessoContent');

@@ -19,22 +19,13 @@ class SearchController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     
-    public function home(Request $request)
+    public function home($rota = "")
     {
-    	return view('contents.indexContent');
+    	return view('contents.indexContent', array('rota' => $rota));
     }
     public function index(Request $request)
     {
-    	$dadosImovel	= new Search();
-    	
-    	$results		= $dadosImovel->pegaDadosImoveis($request,10);
-    	
-    	if($results['count'] == 0)
-    	{
-    		return view('contents.nenhumResultado',$results);
-    	}
-    	
-    	return view('contents.searchContent',$results);
+    	return view('contents.indexContent');
     }
     
     public function viewImovel($id = 0)

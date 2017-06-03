@@ -25,4 +25,8 @@ class Helpers {
     {
     	return number_format($numero,2,",",".");
     }
+    
+    public static function parseTitleInURL($titulo){
+    	return str_replace(" ", "-",$titulo);
+    }
 }

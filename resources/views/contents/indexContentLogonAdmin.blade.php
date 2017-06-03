@@ -1,5 +1,5 @@
 @extends('master.layoutLogonFail')
-@section('title', 'Acesso ao painel - Imobiliaria Shima')
+@section('title', 'Acesso ao painel - Holanda')
 @section('content')
 <section class="jumbotron jumbotron5 jumbotron5LogonFail" style="height:450px">
 	<div class="container" >

@@ -10,7 +10,7 @@
     <link rel="icon" href="../../favicon.ico">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- ><title>@yield('title')</title>-->
-	<title>Imobiliaria Shima - {{$user->nome}}</title>
+	<title>Holanda - {{$user->nome}}</title>
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 

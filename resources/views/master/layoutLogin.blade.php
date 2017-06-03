@@ -7,7 +7,7 @@
     <meta content="" name="author">
     <link href="../../favicon.ico" rel="icon">
 
-    <title>Imobiliaria Shima - Login</title>
+    <title>Holanda</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
