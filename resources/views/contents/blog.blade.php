@@ -20,7 +20,7 @@
             				</span>-->
         			</div>
 					<div>
-						<h3 style="text-align: center;"> 
+						<h3 style="text-align: center;">
 	        				<a href="{{url('/')}}/blog/noticias/{{Helpers::parseTitleInURL($dados['titulo'])}}.html" target="_blank" style="color:rgb(11, 4, 112)">
 	        					{{$dados['titulo']}}                            
 							</a>
