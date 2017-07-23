@@ -80,10 +80,14 @@
 </style>
 <section class="content" id="section-introduction">
 	<div class="container">
-	    <h2>Agradecemos o seu contato! &nbsp;<i class="fa fa-thumbs-o-up"></i></h2>
+	    <h2>Agradecemos o seu contato! &nbsp;<!--<i class="fa fa-thumbs-o-up"></i>--></h2>
 		<p>Seu contato é muito importante para nós. Responderemos em breve!</p>
 		<p><a href ="/" style="background:#E92922" class="btn btn-danger">Ir para a páina principal </a></p>
 	</div>
+	<br>
+	<br>
+	<br>
+	<br>
 </section>
 
 

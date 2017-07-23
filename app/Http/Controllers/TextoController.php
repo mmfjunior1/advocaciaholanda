@@ -25,7 +25,7 @@ class TextoController extends BaseController
     		->orWhere(function ($textos) use ($array){
     			foreach($array as $field=>$value)
     			{
-    				$textos->orWhere($field,'ilike','%'.$value.'%');
+    				$textos->orWhere($field,'like','%'.$value.'%');
     			}
     		})->paginate(10)->appends(['dado'=>$dado]);
     	}
@@ -63,9 +63,14 @@ class TextoController extends BaseController
     	$arrayTypes			= array('png','jpg','jpeg');
     	
     	$obj				= $request->file('imagem');
+        if(isset($request->imagem_atual))
+        {
+            return $request->imagem_atual;   
+        }
+        
     	if(!$obj)
     	{
-    		return false;
+    		return 'imagemBlog/holanda_advogados.png';
     	}
     	$ext				= $obj->guessExtension();
     	
@@ -175,7 +180,7 @@ class TextoController extends BaseController
     
     public function store(Request $request)
     {
-    	$dados		= $request->all();
+    	$dados		       = $request->all();
     	
     	$arrayBoletos	= $request->file('imagem');
     	
@@ -193,8 +198,11 @@ class TextoController extends BaseController
     	
     	$validator	= Validator::make($dados,$camposValidacao,$messages);
     	
-    	unset($dados['_token']);
+    	unset($dados['_token'],$dados['imagem_atual']);
     	
+
+        $dados['titulo']   = trim($dados['titulo']);
+        
     	if($validator->fails())
     	{
     		return $validator->errors();
@@ -232,11 +240,6 @@ class TextoController extends BaseController
     	{
     		
     		$gravaImagem	= $this->gravaImagem($request);
-    		
-    		if(file_exists($resultSet->imagem) && $gravaImagem)
-    		{
-    			unlink($resultSet->imagem);
-    		}
     		
     		if($gravaImagem)
     		{
@@ -294,7 +297,10 @@ class TextoController extends BaseController
     		{
     			if(file_exists($resultSet->imagem))
     			{
-    				unlink($resultSet->imagem);
+    				if($resultSet->imagem != 'imagemBlog/holanda_advogados.png')
+    				{
+    					unlink($resultSet->imagem);
+    				}
     			}
     			$delete	= $resultSet->delete();
     			return response()->json(['msg'=>'<strong>Operação concluída</strong>','statusOperation'=>true,'id'=>0]);

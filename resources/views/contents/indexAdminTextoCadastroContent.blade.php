@@ -64,8 +64,8 @@
           	<div class="form-group">
           		@if(file_exists(@$search->imagem))
           			<div style="width:100%;border:1px solid;">
-          			
           				<img src="/{{$search->imagem}}" style="width: 100%" />
+          				<input type="hidden" value="{{$search->imagem}}" name="imagem_atual" id="imagem_atual">
           			</div>
           			<br>
           			<button type="button" class="btn btn-default trashImg"><span class="glyphicon glyphicon-trash"></span>&nbsp;Trocar imagem de cabeçalho</button>
@@ -109,7 +109,28 @@
           		<label>Palavras chave</label>
           		<input type="text" 	class="form-control" placeholder="Ex: processo, tributo. Separe as palavras por vírgula" name="palavra_chave" id="palavra_chave" value="{{@$search->palavra_chave}}">
           	</div>
-          	
+          	<div class="form-group">
+          		<label>Tipo de publicação</label>
+          		<br>
+          		<select name="tipo_texto">
+          			<?php
+          				$selected1 	= "";
+          				$selected2	= "";
+          				if(@$search->tipo_texto == "n")
+          				{
+          					$selected1 = 'selected = "selected"';
+          				}
+          				if(@$search->tipo_texto == "b")
+          				{
+          					
+          					$selected2 = 'selected = "selected"';
+          				}
+          				
+          			?>
+          			<option value="b" <?php @$search->tipo_texto =='b' ? print("selected=\"selected\"") : ''?> >Boletim </option>
+          			<option value="n" <?php @$search->tipo_texto =='n' ? print("selected=\"selected\"") : ''?> >Notícia</option>
+          		</select>
+          	</div>
           	
           	<div class="form-group">
 		    <div class="col-xs-offset-0 col-sm-10 col-md-10 col-xs-11">

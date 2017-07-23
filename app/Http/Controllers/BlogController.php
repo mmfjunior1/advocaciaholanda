@@ -11,6 +11,18 @@ use App\Texto;
 class BlogController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    private $noticias;
+    
+    private $boletins;
+
+    function __construct()
+    {
+        $this->noticias = Texto::select('*')->where('tipo_texto','=','n')
+        ->orderBy('created_at','desc')->take(3)->get();
+        $this->boletins = Texto::select('*')->where('tipo_texto','=','b')
+        ->orderBy('created_at','desc')->take(3)->get();
+    }
     
     public function listaTextooDb($request)
     {
@@ -23,9 +35,9 @@ class BlogController extends BaseController
     		->orWhere(function ($textos) use ($array){
     			foreach($array as $field=>$value)
     			{
-    				$textos->orWhere($field,'ilike','%'.$value.'%');
+    				$textos->orWhere($field,'like','%'.$value.'%');
     			}
-    		})->paginate(10)->appends(['dado'=>$dado]);
+    		})->orderBy('created_at','desc')->paginate(10)->appends(['dado'=>$dado]);
     	}
     	else
     	{
@@ -40,18 +52,18 @@ class BlogController extends BaseController
     	$array							= array();
     	$dado							= $request->dado;
     	$textos							= $this->listaTextooDb($request);
-    	return view('contents.blog',['textos'=>$textos['search'],]);
+    	return view('contents.blog',['textos'=>$textos['search'],'boletim'=>$this->boletins,'noticia'=>$this->noticias]);
     }
     
     public function noticias($title = "")
     {
     	$title			= trim(str_replace(array("-",".html")," ",$title));
     	
-    	$resultSet		= Texto::select('*')->where('titulo','ilike','%'.$title.'%')->get();
+    	$resultSet		= Texto::select('*')->where('titulo','=',''.$title.'')->get();
     	
     	$noticia		= $resultSet[0];
     	
-    	return view('contents.blogContent',['noticia' => $noticia,'created_at'=>$noticia->created_at]);
+    	return view('contents.blogContent',['noticiaContent' => $noticia,'created_at'=>$noticia->created_at,'boletim'=>$this->boletins,'noticia'=>$this->noticias]);
     }
     public function show($id = 0,$json = false)
     {

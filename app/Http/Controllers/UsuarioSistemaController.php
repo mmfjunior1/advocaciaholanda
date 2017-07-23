@@ -27,7 +27,7 @@ class UsuarioSistemaController extends BaseController
     		->where(function ($usuarios) use ($array){
     			foreach($array as $field=>$value)
     			{
-    				$usuarios->where($field,'ilike','%'.$value.'%');
+    				$usuarios->where($field,'like','%'.$value.'%');
     			}
     		})->paginate(1)->appends(['dado'=>$dado]);
     	}

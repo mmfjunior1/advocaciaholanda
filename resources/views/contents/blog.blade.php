@@ -1,27 +1,70 @@
 @extends('master.layout')
-@section('title', 'Blog - Holanda Advogados ')
+@section('title', 'Notícias e boletins - Holanda Advogados ')
 @section('content')
 
       <br>
-      	<div style="width:100%;float:left">
-	      	<div style="margin: 15px;text-align:center;text-decoration:underline">
-	      	<h2 style="color:rgb(11, 4, 112)">Notícias</h2>
+      	<!--<div style="width:100%;float:left">
+	      	<div class="titulo"><h2>Publicações</h2></div>
+      	</div>-->
+      	<div style="width:100%;float:left;min-height:380px;">
+      	<div class="row">
+	      	<div class="col-lg-6 col-md-6 col-sm-6">
+	      		<div class="titulo"><h2>Artigos</h2></div>
+	      		<ul class="publicacoes">
+					<?php 
+						
+		                foreach($textos as $dados):
+		                	if($dados->tipo_texto == 'n')
+		                	{
+		            ?>
+		                <li>
+		                	<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{Helpers::dateFormat($dados['created_at'])}}<br>
+							<i class="fa fa-chevron-right"></i>
+								<a href="{{url('/')}}/noticias/{{Helpers::parseTitleInURL($dados['titulo'])}}.html">{{$dados['titulo']}}</a>
+						</li>
+		            <?php 
+		            		}
+		                endforeach;
+		            	
+		            ?>
+		        </ul>
+	      	</div>
+	      	<div class="col-lg-6 col-md-6 col-sm-6">
+	      	<div class="titulo"><h2>Boletins</h2></div>
+	      		<ul class="publicacoes">
+					<?php 
+						
+		                foreach($textos as $dados):
+		                	if($dados->tipo_texto == 'b')
+		                	{
+		            ?>
+		                <li>
+		                	<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{Helpers::dateFormat($dados['created_at'])}}<br>
+							<i class="fa fa-chevron-right"></i>
+								<a href="{{url('/')}}/noticias/{{Helpers::parseTitleInURL($dados['titulo'])}}.html">{{$dados['titulo']}}</a>
+						</li>
+		            <?php 
+		            		}
+		                endforeach;
+		            	
+		            ?>
+		        </ul>
 	      	</div>
       	</div>
-      	<?php 
-      		foreach($textos as $dados):
-      	?>
-      		<div style="width:100%;float:left">
-      			<div class="blog-post2">
+    
+      		<!--foreach($textos as $dados):-->
+    
+      		
+      			<!--<div class="blog-post2">
       				<div class="blog-post-detail">
         				<span><i class="fa fa-calendar"></i>{{Helpers::dateFormat($dados['created_at'])}}</span>
-            				<!--  <span style="font-size:12px">
-            					Escrito por: FeelGreat                           
-            				</span>-->
+            				 <span style="font-size:12px">
+            					Escrito por: Holanda Advogados                           
+            				</span>
         			</div>
 					<div>
 						<h3 style="text-align: center;">
-	        				<a href="{{url('/')}}/blog/noticias/{{Helpers::parseTitleInURL($dados['titulo'])}}.html" target="_blank" style="color:rgb(11, 4, 112)">
+	        				<a href="{{url('/')}}/noticias/{{Helpers::parseTitleInURL($dados['titulo'])}}.html" target="_blank" style="color:rgb(11, 4, 112)">
 	        					{{$dados['titulo']}}                            
 							</a>
 						</h3>
@@ -31,11 +74,12 @@
 	        				<img alt="{{$dados['titulo']}}" src="{{url($dados['imagem'])}}" style="width: 100%;">
 	        			</p>	
 					</div>
-       			</div>
-			</div>
-	<?php 
-		endforeach;
-	?>
+       			</div>-->
+			
+	
+		<!--endforeach;-->
+	
+	</div>
 	<br style="clear: both">
      
 @endsection

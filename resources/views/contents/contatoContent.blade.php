@@ -8,7 +8,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Atenção</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id="corpoModal">
         
       </div>
       <div class="modal-footer">
@@ -18,14 +18,14 @@
   </div>
 </div>
 <br>
-<section class="jumbotron jumbotron5 contato contatoForm" style="height:430px">
+<section class="jumbotron jumbotron5 contato contatoForm" style="height:auto">
 	<div class="container" >
 		<div class="row">
 			<div class="container" style="padding:0px 30px 30px 30px;">
 				<div class="row" style="text-align:left;">
-	                <h2 style="color:#fff">Fale conosco</h2>
-	                <p style="font-weight: 400">Ligue para <strong>(11) 2506-0305</strong> ou preencha o formulário abaixo.</p>  
-					<fieldset>
+	                <h2 style="color:#fff">Contato</h2>
+                  <p style="font-weight: 200">Ligue para <strong>(11) 2427-5033</strong> ou preencha o formulário abaixo.</p>  
+  				<fieldset>
 						<form action="{{url('/obrigado')}}" method="post" id="formContato">
 						<input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                             <div class="row">
@@ -58,8 +58,15 @@
                 </div>  
 			</div>
         </div>
+
 	</div>
+
 </section>
+<div class="titulo"><h2>Endereço</h2></div>
+<p>Rua José Bonifácio, 221 - Centro</p>
+<p>Atibaia/SP, Brasil</p>
+<p>CEP 12940-210</p>
+<p>Telefone: (11) 2427-5033</p>
 <!-- 
 <section class="content" id="section-introduction">
 	<div class="container">

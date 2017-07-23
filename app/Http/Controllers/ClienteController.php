@@ -50,7 +50,7 @@ class ClienteController extends BaseController
     		->orWhere(function ($clientes) use ($array){
     			foreach($array as $field=>$value)
     			{
-    				$clientes->orWhere($field,'ilike','%'.$value.'%');
+    				$clientes->orWhere($field,'like','%'.$value.'%');
     			}
     		})->where('tipo','=',$tipo)->paginate(10)->appends(['dado'=>$dado]);
     	}

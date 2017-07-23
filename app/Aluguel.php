@@ -45,7 +45,7 @@ class Aluguel extends Model
 								->where('operacao','=',2)->where(function ($imoveis) use ($array){
 									foreach($array as $field=>$value)
 									{
-										$imoveis->orWhere($field,'ilike','%'.$value.'%');
+										$imoveis->orWhere($field,'like','%'.$value.'%');
 									}
 								})
 								->orderBy('codigo_imobiliaria')

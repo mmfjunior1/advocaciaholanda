@@ -14,7 +14,7 @@ class Texto extends Model
      * @var array
      */
     protected $fillable = [
-        'titulo', 'texto', 'palavra_chave','imagem'
+        'titulo', 'texto', 'palavra_chave','imagem', 'tipo_texto'
     ];
 
     /**

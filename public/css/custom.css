@@ -414,11 +414,11 @@ body button.btn-warning:focus {
 /* PANELS */
 
 .panel {
-    background-color:#F9F9F9;
-	box-shadow:0 1px 1px 0 rgba(0,0,0,0.2);
-    border:0;
+    background: transparent;
+	border:0;
     border-radius: 0;
     margin-bottom: 7px;
+    box-shadow: 0px 0px 0px !important;
 }
 
 .panel-heading {
@@ -426,10 +426,13 @@ body button.btn-warning:focus {
 }
 
 .panel-default > .panel-heading {
-    background-color: #0D2D5D;
+    
 	color: #fbf1f1;
-	border-color:rgba(0,0,0,0.1);
+	background: transparent !important;
+	/*border-bottom: 1px dashed;
+	border-color: #163978;*/
 }
+
 
 .panel-primary > .panel-heading,
 .panel-success > .panel-heading,
@@ -460,13 +463,12 @@ body button.btn-warning:focus {
 	cursor:pointer;
 }
 
-.panel-title > a > i {
-    margin-right:8px;
-}
+
 
 body .panel-default .panel-title > a,
 body .panel-default .panel-title > a:after {
-	color: #f5f0f0;
+	color: #333;
+	text-decoration: underline;
 }
 
 .panel-title a:after {
@@ -478,10 +480,6 @@ body .panel-default .panel-title > a:after {
 	color:#FFFFFF;
 	float:right;
 	margin:2px 0 0;
-}
-
-.panel-title a.collapsed:after {
-	content:"\f067";
 }
 
 .panel-group .panel {
@@ -1060,7 +1058,7 @@ body .brands.main li a:hover {
 /* JUMBOTRON 5 */
 
 .jumbotron5 {
-	background-image: url("../images/direito1.jpeg");
+	background-image: url("../images/holanda-advogados-1.jpeg");
 	padding:0;
 	height:500px;
 	background-position:center center;
@@ -1207,8 +1205,8 @@ body .jumbotron5 .btn:first-child:hover {
 }
 .jumbotron5.contato
 {
-	
-	background-image: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.20)), url("../images/direito2.jpeg");
+	background-image: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.20)), url("../images/holanda-advogados-1.jpg");
+	background-position: center top;
 }
 .btn-download {
 	width:170px;
@@ -5098,8 +5096,257 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#20c2a4', end
 	
 	line-height: 0.7;
 }
-.panel-heading:hover
+
+.titulo{
+  width: 100%;
+  border-bottom: 1px solid #bab8a9;
+  margin-bottom: 20px
+}
+.titulo h2{
+  color: #163978;
+  font-weight: normal;
+  width: 50%;
+  padding-left: 5px;
+  margin-bottom: -1px;
+  border-bottom: 3px solid #163978;
+
+}
+.titulo h3{
+  color: #163978;
+  font-weight: normal;
+  width: 100%;
+  padding-left: 5px;
+  margin-bottom: -1px;
+  border-bottom: 3px solid #163978;
+
+}
+.subDivisor h2
 {
-	color:red;
-	background:rgb(37, 126, 234);
+	color: #163978 ;
+  	font-weight: normal;
+}
+ .texto {
+    font-size: 15px;
+    text-align: justify;
+}
+ .texto,  .textopequeno {
+    color: #333333;
+    text-align: justify;
+}
+ .texto {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+.progresso
+{
+	padding-right:5px;
+	border-radius:5px; 
+	text-align:right;
+	font-weight:bold;
+	box-shadow: inset -3px -3px 12px -5px #211E1E;
+	-webkit-box-shadow: inset -3px -3px 12px -5px #211E1E;
+	-moz-box-shadow: inset -3px -3px 12px -5px #211E1E;
+	-o-box-shadow: inset -3px -3px 12px -5px #211E1E;
+}
+.statusPerfil
+{
+	width:300px;
+	border-radius:5px;
+	background:#ccc;
+}
+.fraco
+{
+	color:#fff;
+	background:#A3271A;
+}
+.spanFraco
+{
+	color:#A3271A;
+	font-size:12px;
+}
+.medio
+{
+	background:#e8f300;
+	color:#000;
+}
+.spanNivel
+{
+	text-shadow: 1px 1px #000;
+	font-weight:bold;
+}
+.spanMedio
+{
+	color:#e8f300;
+	font-size:12px;
+}
+.forte
+{
+	color:#fff;
+	background:#119178;
+}
+.spanForte
+{
+	color:#119178;
+}
+.muitoForte
+{
+	color:#fff;
+	background:#8CC63F;
+}
+.spanMuitoForte
+{
+	color:#8CC63F;
+	font-size:13px;
+}
+
+.botaoControle {
+	background: none repeat scroll 0 0 #e8f300;
+	border-radius: 8px;
+	box-shadow: 2px 2px 2px #000;
+	color: #575958;
+	font-family: "Arial",Arial,serif;
+	font-size:15px;
+	font-weight:bold;
+	height: 40px;
+	position: relative;
+	text-align: center;
+	text-shadow: none;
+	margin-top:10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border:0px;
+}
+.atualizarPefil
+{
+	font-size:12px;
+	margin-top:0px;
+	border:0px;
+	padding-left:10px;
+	padding-right:10px;
+}
+.botaoControle:hover
+{
+	cursor:pointer;
+	background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.2));
+}
+.progressBar
+{
+	width:60%;
+	height:20px;
+	margin:auto;
+	border-radius: 10px;
+	background:#fff;
+}
+.progressBarInner
+{
+	position:relative;
+	float:left;
+	padding-right:2%;
+	background:#e8f300;
+	border-radius: 10px;
+	font-weight:bold;
+	text-align:right;
+}
+
+#tooltip
+{
+	text-align: center;
+	color: #fff;
+	background: #111;
+	position: absolute;
+	z-index: 100;
+	padding: 15px;
+}
+ 
+#tooltip:after /* triangle decoration */
+{
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid #111;
+	content: '';
+	position: absolute;
+	left: 50%;
+	bottom: -10px;
+	margin-left: -10px;
+}
+ 
+#tooltip.top:after
+{
+	border-top-color: transparent;
+	border-bottom: 10px solid #111;
+	top: -20px;
+	bottom: auto;
+}
+
+#tooltip.left:after
+{
+	left: 10px;
+	margin: 0;
+}
+
+#tooltip.right:after
+{
+	right: 10px;
+	left: auto;
+	margin: 0;
+}
+.star{color:#F00;}
+.error{color:#F00; font-size:12px;}
+.testeteste{
+	background-repeat:no-repeat;
+	-webkit-background-size:cover;
+	-moz-background-size:cover;
+	-o-background-size:cover;
+	background-size:cover;
+	background-position:center center;
+	color:#fff;
+}
+.testeteste h2{
+	font-size: 30px;
+	line-height: 0px;
+	padding: 10px 0;
+	margin: 10px 0 30px;
+	background: none !important;
+}
+.row a:hover
+{
+	text-decoration: underline;
+}
+
+
+.navbar-nav > li > span {
+    text-align: center;
+}
+.navbar-nav > li > span {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.nav > li > span {
+    position: relative;
+    display: block;
+    padding: 17px 15px;
+    font-size: 12px;    
+}
+.container_footer span {
+    color: #DBDBDB;
+    font-size: 12px;
+}
+span,span:focus, span:hover, button, button:focus, button:hover, button:active {
+    outline: 0 none;
+    text-decoration: none;
+}
+span {
+    color: #337ab7;
+    text-decoration: none;
+}
+span {
+    background-color: transparent;
+}
+
+hr
+{
+	border: 1px solid #bab8a9
 }

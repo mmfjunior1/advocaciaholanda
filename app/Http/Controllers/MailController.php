@@ -19,27 +19,15 @@ class MailController extends BaseController
 	function sendEmail($subject = "Boleto", $text= "",$attach = array(),$to = "",$name = "")
 	{
 		try{
-			$fromName 			= "Imobiliaria Shima";
-			$fromMail			= "contato@imobiliariashima.com.br";
+			$fromName 			= "Contato - Holanda Advogados";
+			$fromMail           = "contato@holandaadvogados.com";
 			$texto				= (Object)"";
 			$texto->texto		= $text;
 			
-			Mail::send('master.email',array("user"=>$texto), function($messagem) use ($fromName,$fromMail,$subject,$attach,$to,$name)
+			Mail::send('master.email',array("user"=>$texto), function($messagem) use ($fromName,$fromMail,$subject)
 			{
-				if($to !="")
-				{
-					$messagem->to($to,$name);
-					$messagem->cc("contato@imobiliariashima.com.br","Imobiliaria Shima");
-				}
-				else 
-				{
-					$messagem->to("contato@imobiliariashima.com.br","Imobiliaria Shima");
-				}
-				$messagem->from($fromMail,"Sistema Imobiliaria");
-				foreach($attach as $file)
-				{
-					$messagem->attach($file);
-				}
+				$messagem->to($fromMail,$fromMail);
+                $messagem->from('sistema@holandaadvogados.com','sistema@holandaadvogados.com');
 				
 				$messagem->subject($subject);
 			});

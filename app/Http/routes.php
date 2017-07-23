@@ -95,25 +95,25 @@ Route::post("admin/logonSistema",						'UsuarioSistemaController@login');
 	
 Route::post("admin/login",								'LoginController@loginAdmin');
 
-Route::get('/', 'SearchController@home');
+Route::get('/quem-somos', 								'SearchController@homePage');
 
-Route::get('/inicio/{rota}', 'SearchController@home');
+Route::get('/inicio/{rota}', 							'SearchController@home');
 
-Route::get('/areas-de-atuacao',function() {
-	return view('contents.atuacao');
-});
+Route::get('/areas-de-atuacao', 						'SearchController@homePage');
 
-Route::get('/index', function () {
-	return view('master.layout');
-});
+Route::get('/home', 									'SearchController@homePage');
 
-Route::get('/contato', function () {
-	return view('contents.contatoContent');
-});
+Route::get('/index', 									'SearchController@homePage');
 
-Route::get('/blog', 'BlogController@index');
+Route::get('/', 										'SearchController@homePage');
 
-Route::get('/blog/noticias/{title}', 'BlogController@noticias');
+Route::get('/contato',									'SearchController@homePage');
+
+Route::get('/noticias', 								'BlogController@index');
+
+Route::post('/enviaCurriculo', 								'SearchController@enviaCurriculo');
+
+Route::get('/noticias/{title}', 						'BlogController@noticias');
 
 Route::post('/obrigado', function () {
 	return view('contents.sucessoContent');

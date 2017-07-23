@@ -3,11 +3,14 @@
 @section('content')
 <!-- Jumbotron -->
       <br>
-      <div class="jumbotron testeteste"  style="background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.30)),url({{asset('images/direito2.jpeg')}})  ">
+      <div class="jumbotron testeteste"  style="background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.30)),url({{asset('images/holanda-advogados-4.jpg')}})  ">
         <h1>O Escritório</h1>
         <p class="lead">Localizado na cidade de Atibaia, nosso escritório está estruturado para atender nossos clientes de forma especializada, sempre buscando a prestação de serviços jurídicos com excelência.</p>
         <p>Com qualidade e experiência, buscamos o êxito de nossos clientes no mais diversos litígios e controvérsias.</p>
-        <p><a class="btn btn-lg btn-default" href="#" role="button">Entre em contato</a></p>
+        <p><!--<a class="btn btn-lg btn-default" href="/contato" role="button">Entre em contato</a>--></p>
+        <br>
+        <br>
+        <br>
       </div>
 
       <!-- Example row of columns -->
@@ -20,7 +23,7 @@
                          <div class="panel panel-default">
                             <div class="panel-heading">
                               <h3 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse"  href="/inicio/contratual#areas">
+                                <a class="accordion-toggle" href="/inicio/civel#areas">
                                   Cível
                                   <i class="fa fa-angle-right pull-right"></i>
                                 </a>
@@ -30,7 +33,7 @@
                           <div class="panel panel-default">
                             <div class="panel-heading">
                               <h3 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse"  href="/inicio/previdenciario#areas">
+                                <a class="accordion-toggle" href="/inicio/previdenciario#areas">
                                   Previdenciário
                                   <i class="fa fa-angle-right pull-right"></i>
                                 </a>
@@ -40,7 +43,7 @@
                           <div class="panel panel-default">
                             <div class="panel-heading">
                               <h3 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse"  href="/inicio/consumidor#areas">
+                                <a class="accordion-toggle" href="/inicio/consumidor#areas">
                                   Consumidor
                                   <i class="fa fa-angle-right pull-right"></i>
                                 </a>
@@ -50,7 +53,7 @@
                           <div class="panel panel-default">
                             <div class="panel-heading">
                               <h3 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse"  href="/inicio/imobiliaria#areas">
+                                <a class="accordion-toggle" href="/inicio/imobiliaria#areas">
                                   Imobiliaria
                                   <i class="fa fa-angle-right pull-right"></i>
                                 </a>
@@ -60,7 +63,7 @@
                            <div class="panel panel-default">
                             <div class="panel-heading">
                               <h3 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse"  href="/inicio/tributaria#areas">
+                                <a class="accordion-toggle" href="/inicio/tributaria#areas">
                                   Tributaria
                                   <i class="fa fa-angle-right pull-right"></i>
                                 </a>

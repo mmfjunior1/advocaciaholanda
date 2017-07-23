@@ -160,7 +160,7 @@ class Search extends Model
 								}
 								else
 								{
-									$imoveis->orWhere($field,'ilike','%'.$value.'%');
+									$imoveis->orWhere($field,'like','%'.$value.'%');
 								}
 							}
 						})
@@ -179,7 +179,7 @@ class Search extends Model
 								}
 								else
 								{
-									$imoveis->orWhere($field,'ilike','%'.$value.'%');
+									$imoveis->orWhere($field,'like','%'.$value.'%');
 								}
 							}
 						})
@@ -200,7 +200,7 @@ class Search extends Model
 							}
 							else
 							{
-								$imoveis->orWhere($field,'ilike','%'.$value.'%');
+								$imoveis->orWhere($field,'like','%'.$value.'%');
 							}
 						}
 					})

@@ -1,10 +1,80 @@
-
 function resetModal()
 {	
 	$("#myModal").close();
 	return $(".modal-footer").html('<button type="button" class="btn btn-default" data-dismiss="modal" id="btnOkModal">Ok</button>');
 }
 
+function createCurriculum()
+{
+	$("#myCurriculum").modal();
+}
+
+
+$("#enviaCurriculo").click(function(){
+		var formulario	= new FormData();
+		var fileSelect = document.getElementById('documento');
+		var files = fileSelect.files;
+		for(var i = 0; i < files.length; i++) {
+			var file = files[i];
+			var nome = file.name;
+			  // Add the file to the request.
+			formulario.append('sendFile[]', file, nome);
+		}
+		formulario.append('_token',$("#_token").val());
+		formulario.append('nome',$("#nome").val());
+		$("input[name='tipo']").each(function()
+		{
+			if(this.checked == true)
+			{
+				formulario.append('tipo',this.value);
+			}
+		})
+		
+		formulario.append('email',$("#email").val());
+		formulario.append('telefone',$("#telefone").val());
+		formulario.append('celular',$("#celular").val());
+		formulario.append('endereco',$("#endereco").val());
+		formulario.append('cidade',$("#cidade").val());
+
+		$.ajax({
+			url		: '/enviaCurriculo',
+			method 	: 'POST',
+			data	: formulario,
+			beforeSend: function(){
+				//$("#divProcessando").show();
+				$("#enviaCurriculo").html("<li class=\"fa fa-spinner fa-spin fa-1x\"></li>&nbsp;Enviando").attr("disabled","disabled");
+			},
+			contentType: false,
+		    processData: false,
+		}).done(function(response){
+			var textoErro = '';
+			//$("#divProcessando").hide();
+			if(response !='')
+			{
+				$.each(response,function(field,value)
+				{
+					if(field != 'statusOperation' && field !='id' && field !='fotos')
+					{
+						$("#error"+field).html(value);
+					}
+				});
+				if(response.statusOperation == true)
+				{
+					if(response.statusOperation == true)
+					{
+						$("#formularioObrigado").submit();
+						return;
+					}
+				}
+				$("#enviaCurriculo").html("Enviar").removeAttr("disabled");
+				//$("#removeAttr").attr("disabled");
+			}
+		}).error(function()
+		{
+			$("#enviaCurriculo").html("Enviar").removeAttr("disabled");
+			alert('Houve um erro ao enviar as imagens. Contate o administrador do sistema.');
+		});
+	});
 function excluirBlog(id)
 {
 	$.ajax({
@@ -555,6 +625,7 @@ $(document).ready(function(){
 				{
 					$(".modal-body").html(textoErro);
 					$('#myModal').modal();
+					$(".btnEnviaEmailImovel").removeAttr("disabled");
 				}
 				
 			}
@@ -609,15 +680,17 @@ $(document).ready(function(){
 				
 				if(textoErro!='')
 				{
-					$(".modal-body").html(textoErro);
+					$("#corpoModal").html(textoErro);
 					$('#myModal').modal();
+					$(".send-now").html("<li class=\"fa fa-envelope fa-2x\"></li>&nbsp;Enviar");
+					$(".send-now").removeAttr("disabled","disabled");
 				}
 				
 			}
 		}).error(function(){
 						$(".send-now").html("<i class=\"fa fa-envelope fa-2x\"></i>Enviar");
 						$(".send-now").removeAttr("disabled");
-                        $(".modal-body").html('<strong style="color:red">Desculpe, houve um erro ao enviar o email. <br> Estamos trabalhando para corrigir o problema. Tente novamente mais tarde.</strong>');
+                        $("#corpoModal").html('<strong style="color:red">Desculpe, houve um erro ao enviar o email. <br> Estamos trabalhando para corrigir o problema. Tente novamente mais tarde.</strong>');
                         $("#myModal").modal();
                         $("#divProcessando").hide();
 			$(".btnEnviaEmailImovel").html("ENTRE EM CONTATO");

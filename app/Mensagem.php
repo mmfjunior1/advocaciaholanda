@@ -25,7 +25,7 @@ class Mensagem extends Model
 		->where(function ($mensagens) use ($array){
 			foreach($array as $field=>$value)
 			{
-				$mensagens->orWhere($field,'ilike','%'.$value.'%');
+				$mensagens->orWhere($field,'like','%'.$value.'%');
 			}
 		})->orderBy('created_at','desc')->
 		paginate($page)->appends(['dado'=>$dado]);

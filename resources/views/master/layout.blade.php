@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="author" content="Mario Miranda Fernandes Junior">
+    <meta property="fb:app_id"             content="203679213492552" />
+    <meta property="og:url"                content="{{url('/')}}" />
+	<meta property="og:type"               content="article" />
+	<meta property="og:title"              content="Escritório de Advocacia Holanda Advogados" />
+	<meta property="og:description"        content="How much does culture influence creative thinking?" />
+	<meta property="og:image"              content="{{asset('images/holanda_advogados.png')}}" />
+	
     <link rel="icon" href="../../favicon.ico">
 
     <title>@yield('title')</title>
@@ -23,190 +30,12 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="{{asset('js/ie-emulation-modes-warning.js')}}"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style>
-			.testeteste{
-				background-repeat:no-repeat;
-				-webkit-background-size:cover;
-				-moz-background-size:cover;
-				-o-background-size:cover;
-				background-size:cover;
-				background-position:center center;
-				color:#fff;
-			}
-			.testeteste h2{
-				font-size: 30px;
-				line-height: 0px;
-				padding: 10px 0;
-				margin: 10px 0 30px;
-				background: none !important;
-			}
-		</style>
-		
-		<style>
-		.progresso
-		{
-			padding-right:5px;
-			border-radius:5px; 
-			text-align:right;
-			font-weight:bold;
-			box-shadow: inset -3px -3px 12px -5px #211E1E;
-			-webkit-box-shadow: inset -3px -3px 12px -5px #211E1E;
-			-moz-box-shadow: inset -3px -3px 12px -5px #211E1E;
-			-o-box-shadow: inset -3px -3px 12px -5px #211E1E;
-		}
-		.statusPerfil
-		{
-			width:300px;
-			border-radius:5px;
-			background:#ccc;
-		}
-		.fraco
-		{
-			color:#fff;
-			background:#A3271A;
-		}
-		.spanFraco
-		{
-			color:#A3271A;
-			font-size:12px;
-		}
-		.medio
-		{
-			background:#e8f300;
-			color:#000;
-		}
-		.spanNivel
-		{
-			text-shadow: 1px 1px #000;
-			font-weight:bold;
-		}
-		.spanMedio
-		{
-			color:#e8f300;
-			font-size:12px;
-		}
-		.forte
-		{
-			color:#fff;
-			background:#119178;
-		}
-		.spanForte
-		{
-			color:#119178;
-		}
-		.muitoForte
-		{
-			color:#fff;
-			background:#8CC63F;
-		}
-		.spanMuitoForte
-		{
-			color:#8CC63F;
-			font-size:13px;
-		}
-		
-		.botaoControle {
-			background: none repeat scroll 0 0 #e8f300;
-			border-radius: 8px;
-			box-shadow: 2px 2px 2px #000;
-			color: #575958;
-			font-family: "Arial",Arial,serif;
-			font-size:15px;
-			font-weight:bold;
-			height: 40px;
-			position: relative;
-			text-align: center;
-			text-shadow: none;
-			margin-top:10px;
-			padding-left: 10px;
-			padding-right: 10px;
-			border:0px;
-		}
-		.atualizarPefil
-		{
-			font-size:12px;
-			margin-top:0px;
-			border:0px;
-			padding-left:10px;
-			padding-right:10px;
-		}
-		.botaoControle:hover
-		{
-			cursor:pointer;
-			background-image: linear-gradient(to bottom, transparent, rgba(0,0,0,0.2));
-		}
-		.progressBar
-		{
-			width:60%;
-			height:20px;
-			margin:auto;
-			border-radius: 10px;
-			background:#fff;
-		}
-		.progressBarInner
-		{
-			position:relative;
-			float:left;
-			padding-right:2%;
-			background:#e8f300;
-			border-radius: 10px;
-			font-weight:bold;
-			text-align:right;
-		}
-		
-		#tooltip
-		{
-			text-align: center;
-			color: #fff;
-			background: #111;
-			position: absolute;
-			z-index: 100;
-			padding: 15px;
-		}
-		 
-		#tooltip:after /* triangle decoration */
-		{
-			width: 0;
-			height: 0;
-			border-left: 10px solid transparent;
-			border-right: 10px solid transparent;
-			border-top: 10px solid #111;
-			content: '';
-			position: absolute;
-			left: 50%;
-			bottom: -10px;
-			margin-left: -10px;
-		}
-		 
-		#tooltip.top:after
-		{
-			border-top-color: transparent;
-			border-bottom: 10px solid #111;
-			top: -20px;
-			bottom: auto;
-		}
- 
-		#tooltip.left:after
-		{
-			left: 10px;
-			margin: 0;
-		}
- 
-		#tooltip.right:after
-		{
-			right: 10px;
-			left: auto;
-			margin: 0;
-		}
-		.star{color:#F00;}
-		.error{color:#F00; font-size:12px;}
-	</style>
+    
 
     <!-- ==========================
     	Meta Tags 
@@ -229,31 +58,77 @@
     <!-- ==========================
     	CSS 
     =========================== -->
-    <link type="text/css" rel="stylesheet" href="/css/select-box.css">
-	<link type="text/css" rel="stylesheet" href="/css/font-awesome.min.css">
-	<link type="text/css" rel="stylesheet" href="/css/animate.css">
-	<link type="text/css" rel="stylesheet" href="/css/color.css">
-	<link type="text/css" rel="stylesheet" href="/css/custom.css">
+    <link type="text/css" rel="stylesheet" href="{{url('css/select-box.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{url('css/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{url('css/animate.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{url('css/color.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{url('css/custom.css')}}">
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
   </head>
 
   <body>
+  	<form action="{{url('/obrigado')}}" method="post" id="formularioObrigado">
+  		<input type="hidden" name="_token" id="_token" value="<?php echo csrf_token() ?>">
+  	</form>
 	<div class="container" style="width:100%;-webkit-box-shadow: inset 0 90px 200px rgba(0,0,0,.4);" >
+	<div class="modal fade" id="myCurriculum" tabindex="-1" role="dialog" aria-labelledby="modalCurriculum">
+	  <div class="modal-dialog" role="document" style="width:90%">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <div class="titulo"><h2>Trabalhe conosco</h2></div>
+	      </div>
+	      <div class="modal-body">
+	      	<p>Escolha seu perfil, preencha seus dados e, caso tenha, anexe seu currículo.</p>
+	      	<div class="row">
+			  <div class="col-md-4"><label><input type="radio" name="tipo" value="Advogado" checked>&nbsp;Advogado</label></div>
+			  <div class="col-md-4"><label><input type="radio" name="tipo" value="Estagiário">&nbsp;Estagiário</label></div>
+			  <div class="col-md-4"><label><input type="radio" name="tipo" value="Apoio/Administrativo">&nbsp;Apoio/Administrativo</label></div>
+			</div>
+	        <div class="row">
+			  <div class="col-md-4"><input type="text" class="form-control" id="nome" name="nome" placeholder="Nome"><span id="errornome">&nbsp;</span></div>
+			  <div class="col-md-4"><input type="email" class="form-control" id="email" name="email" placeholder="E-mail"><span id="erroremail">&nbsp;</span></div>
+			  <div class="col-md-4"><input type="phone" class="form-control" id="telefone" name="telefone" placeholder="Telefone"><span id="errortelefone">&nbsp;</span></div>
+			</div>
+			<br>
+			<div class="row">
+			  <div class="col-md-4"><input type="phon" class="form-control" id="celular" name="celular" placeholder="Celular"><span id="errorcelular">&nbsp;</span></div>
+			  <div class="col-md-4"><input type="text" class="form-control" id="endereco" name="endereco" placeholder="Endereço"><span id="errorendereco">&nbsp;</span></div>
+			  <div class="col-md-4"><input type="text" class="form-control" id="cidade" name="cidade" placeholder="Cidade/Estado"><span id="errorcidade">&nbsp;</span></div>
+			</div>
+			<br>
+			<div class="row">
+			  <div class="col-md-4"><input type="file" id="documento" name="documento" accept=".pdf,.doc,.docx,.txt"></div>
+			  <div class="col-md-4"><strong>Serão aceitos DOC, PDF, PPT ou TXT</strong></div>
+			</div>
+			 
+	      </div>
+	      <div class="modal-footer">
+	      	<button type="button" class="btn btn btn-default"  data-dismiss="modal">Cancelar</button>
+	      	&nbsp;
+	        <button type="button" class="btn btn btn-primary"  id="enviaCurriculo">Enviar</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 	<div class="row" >
       <!-- The justified navigation menu is meant for single line per list item.
            Multiple lines will require custom code not provided by Bootstrap. -->
       <div class="masthead">
         <div style="width:100%;position:relative;">
-        	<div style="margin-right: auto;margin-left:auto;width:400px;">
+        	<div style="margin: 0 auto;width:400px;">
         			<img src="{{asset('images/holanda_advogados.png')}}">
         	</div>
         </div>
         <nav>
           <ul class="nav nav-justified">
-            <li class="{{Request::is('/') ? 'active' :''}}"><a href="/">O escritório</a></li>
-            <li class="{{Request::is('areas-de-atuacao') ? 'active' :''}}"><a href="/areas-de-atuacao">Áreas de atuação</a></li>
-            <li class="{{Request::is('blog*') ? 'active' :''}}"><a href="/blog">Notícias</a></li>
-            <li class="{{Request::is('contato') ? 'active' :''}}"><a href="/contato">Entre em contato</a></li>
+          	<li class="{{Request::is('home') ? 'active' :''}}"><a href="{{url('home')}}">Home</a></li>
+          	<li class="{{Request::is('quem-somos') ? 'active' :''}}"><a href="{{url('quem-somos')}}">Quem somos</a></li>
+            <!--<li class="{{Request::is('/') ? 'active' :''}}"><a href="/">O escritório</a></li>-->
+            <li class="{{Request::is('areas-de-atuacao') ? 'active' :''}}"><a href="{{url('areas-de-atuacao')}}">Áreas de atuação</a></li>
+            <li class="{{Request::is('noticias*') ? 'active' :''}}"><a href="{{url('noticias')}}">Publicações</a></li>
+            <li><a href="{{url('#')}}" onclick="createCurriculum()">Trabalhe conosco</a></li>
+            <li class="{{Request::is('contato') ? 'active' :''}}"><a href="{{url('contato')}}">Contato</a></li>
             
           </ul>
         </nav>
@@ -261,15 +136,62 @@
 	  </div>
 	  @yield('content')
       
+      
        <!-- Site footer -->
        <br style="clear: both">
-      <footer class="footer">
+       </div>
+       <div class="container container_footer">
+       <div>
+       		<div class="footer-bottom">
+
+                
+                <ul class="nav navbar-nav navbar-right">
+
+	                <li><span>Holanda Advogados | Todos os direitos reservados</span>
+
+                    <li><a href="{{url('home')}}">Home</a></li>
+
+                   <!-- <li><a href="services/career"></a></li>-->
+
+                    <li><a href="{{url('quem-somos')}}">Quem somos</a></li>
+
+                    <li><a href="{{url('areas-de-atuacao')}}">Áreas de atuação</a></li>
+
+                    <li><a href="{{url('noticias')}}">Publicações</a></li>
+
+                    <li><a href="{{url('#')}}" onclick="createCurriculum()">Trabalhe conosco</a></li>
+
+                    <li><a href="{{url('contato')}}">Contato</a></li>
+
+                    <li><a href="https://www.facebook.com/holandaadvogados"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.linkedin.com/company-beta/3640498/"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a></li>
+                    <li><a href="https://twitter.com/Advholanda"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></li>
+                </ul>
+			</div>
+       		
+       </div>
+      
+
+      <!--<footer class="footer">
         <p>&copy; {{date('Y')}} Holanda Advogados.</p>
-      </footer>
+        <p>Rua José Bonifácio, 221 - Centro, Atibaia - SP, 12940-210</p>
+      </footer>-->
 
     </div> <!-- /container -->
-
-	
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/holanda.js"></script>
+	<script>
+    
+      function toggleIcon(e) {
+          $(e.target)
+              .prev('.panel-heading')
+              .find(".more-less")
+              .toggleClass('glyphicon-plus glyphicon-minus');
+      }
+      $('.panel-group').on('hidden.bs.collapse', toggleIcon);
+      $('.panel-group').on('shown.bs.collapse', toggleIcon);
+    </script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="{{asset('js/ie10-viewport-bug-workaround.js')}}"></script>
   </body>
