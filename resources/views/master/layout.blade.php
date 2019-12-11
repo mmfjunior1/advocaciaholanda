@@ -8,28 +8,28 @@
     <meta name="description" content="">
     <meta name="author" content="Mario Miranda Fernandes Junior">
     <meta property="fb:app_id"             content="203679213492552" />
-    <meta property="og:url"                content="{{url('/')}}" />
+    <meta property="og:url"                content="{{secure_url('/')}}" />
 	<meta property="og:type"               content="article" />
 	<meta property="og:title"              content="Escritório de Advocacia Holanda Advogados" />
-	<meta property="og:description"        content="How much does culture influence creative thinking?" />
-	<meta property="og:image"              content="{{asset('images/holanda_advogados.png')}}" />
+	<meta property="og:description"        content="@yield('title')" />
+	<meta property="og:image"              content="{{secure_asset('images/holanda_advogados.png')}}" />
 	
     <link rel="icon" href="../../favicon.ico">
 
     <title>@yield('title')</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{secure_url('/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="{{asset('css/ie10-viewport-bug-workaround.css')}}" rel="stylesheet">
+    <link href="{{secure_url('/css/ie10-viewport-bug-workaround.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{asset('css/holanda.css')}}" rel="stylesheet">
+    <link href="{{secure_url('/css/holanda.css')}}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="{{asset('js/ie-emulation-modes-warning.js')}}"></script>
+    <script src="{{secure_asset('js/ie-emulation-modes-warning.js')}}"></script>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -58,16 +58,16 @@
     <!-- ==========================
     	CSS 
     =========================== -->
-    <link type="text/css" rel="stylesheet" href="{{url('css/select-box.css')}}">
-	<link type="text/css" rel="stylesheet" href="{{url('css/font-awesome-4.7.0/css/font-awesome.min.css')}}">
-	<link type="text/css" rel="stylesheet" href="{{url('css/animate.css')}}">
-	<link type="text/css" rel="stylesheet" href="{{url('css/color.css')}}">
-	<link type="text/css" rel="stylesheet" href="{{url('css/custom.css')}}">
+    <link type="text/css" rel="stylesheet" href="{{secure_url('css/select-box.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{secure_url('css/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{secure_url('css/animate.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{secure_url('css/color.css')}}">
+	<link type="text/css" rel="stylesheet" href="{{secure_url('css/custom.css')}}">
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
   </head>
 
   <body>
-  	<form action="{{url('/obrigado')}}" method="post" id="formularioObrigado">
+  	<form action="{{secure_url('/obrigado')}}" method="post" id="formularioObrigado">
   		<input type="hidden" name="_token" id="_token" value="<?php echo csrf_token() ?>">
   	</form>
 	<div class="container" style="width:100%;-webkit-box-shadow: inset 0 90px 200px rgba(0,0,0,.4);" >
@@ -79,7 +79,7 @@
 	        <div class="titulo"><h2>Trabalhe conosco</h2></div>
 	      </div>
 	      <div class="modal-body">
-	      	<p>Escolha seu perfil, preencha seus dados e, caso tenha, anexe seu currículo.</p>
+	      	<p>Escolha seu perfil, preencha seus dados e anexe seu currículo.</p>
 	      	<div class="row">
 			  <div class="col-md-4"><label><input type="radio" name="tipo" value="Advogado" checked>&nbsp;Advogado</label></div>
 			  <div class="col-md-4"><label><input type="radio" name="tipo" value="Estagiário">&nbsp;Estagiário</label></div>
@@ -117,18 +117,18 @@
       <div class="masthead">
         <div style="width:100%;position:relative;">
         	<div style="margin: 0 auto;width:400px;">
-        			<img src="{{asset('images/holanda_advogados.png')}}">
+        			<img src="{{secure_asset('images/holanda_advogados.png')}}">
         	</div>
         </div>
         <nav>
           <ul class="nav nav-justified">
-          	<li class="{{Request::is('home') ? 'active' :''}}"><a href="{{url('home')}}">Home</a></li>
-          	<li class="{{Request::is('quem-somos') ? 'active' :''}}"><a href="{{url('quem-somos')}}">Quem somos</a></li>
+          	<li class="{{Request::is('home') ? 'active' :''}}"><a href="{{secure_url('home')}}">Home</a></li>
+          	<li class="{{Request::is('quem-somos') ? 'active' :''}}"><a href="{{secure_url('quem-somos')}}">Quem somos</a></li>
             <!--<li class="{{Request::is('/') ? 'active' :''}}"><a href="/">O escritório</a></li>-->
-            <li class="{{Request::is('areas-de-atuacao') ? 'active' :''}}"><a href="{{url('areas-de-atuacao')}}">Áreas de atuação</a></li>
-            <li class="{{Request::is('noticias*') ? 'active' :''}}"><a href="{{url('noticias')}}">Publicações</a></li>
-            <li><a href="{{url('#')}}" onclick="createCurriculum()">Trabalhe conosco</a></li>
-            <li class="{{Request::is('contato') ? 'active' :''}}"><a href="{{url('contato')}}">Contato</a></li>
+            <li class="{{Request::is('areas-de-atuacao') ? 'active' :''}}"><a href="{{secure_url('areas-de-atuacao')}}">Áreas de atuação</a></li>
+            <li class="{{Request::is('noticias*') ? 'active' :''}}"><a href="{{secure_url('noticias')}}">Publicações</a></li>
+            <!--<li><a href="{{secure_url('#')}}" onclick="createCurriculum()">Trabalhe conosco</a></li>-->
+            <li class="{{Request::is('contato') ? 'active' :''}}"><a href="{{secure_url('contato')}}">Contato</a></li>
             
           </ul>
         </nav>
@@ -149,21 +149,23 @@
 
 	                <li><span>Holanda Advogados | Todos os direitos reservados</span>
 
-                    <li><a href="{{url('home')}}">Home</a></li>
+                    <li><a href="{{secure_url('home')}}">Home</a></li>
 
                    <!-- <li><a href="services/career"></a></li>-->
 
-                    <li><a href="{{url('quem-somos')}}">Quem somos</a></li>
+                    <li><a href="{{secure_url('quem-somos')}}">Quem somos</a></li>
 
-                    <li><a href="{{url('areas-de-atuacao')}}">Áreas de atuação</a></li>
+                    <li><a href="{{secure_url('areas-de-atuacao')}}">Áreas de atuação</a></li>
 
-                    <li><a href="{{url('noticias')}}">Publicações</a></li>
+                    <li><a href="{{secure_url('noticias')}}">Publicações</a></li>
 
-                    <li><a href="{{url('#')}}" onclick="createCurriculum()">Trabalhe conosco</a></li>
+                    <!--<li><a href="{{secure_url('#')}}" onclick="createCurriculum()">Trabalhe conosco</a></li> -->
 
-                    <li><a href="{{url('contato')}}">Contato</a></li>
+                    <li><a href="{{secure_url('contato')}}">Contato</a></li>
 
                     <li><a href="https://www.facebook.com/holandaadvogados"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a></li>
+                    <li><a href="https://www.instagram.com/holanda_advogados"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a></li>
+                    
                     <li><a href="https://www.linkedin.com/company-beta/3640498/"><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></a></li>
                     <li><a href="https://twitter.com/Advholanda"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a></li>
                 </ul>
@@ -193,6 +195,6 @@
       $('.panel-group').on('shown.bs.collapse', toggleIcon);
     </script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="{{asset('js/ie10-viewport-bug-workaround.js')}}"></script>
+    <script src="{{secure_url('/js/ie10-viewport-bug-workaround.js')}}"></script>
   </body>
 </html>

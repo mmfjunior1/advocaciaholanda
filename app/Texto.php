@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
 class Texto extends Model
 {
 	
@@ -14,7 +13,7 @@ class Texto extends Model
      * @var array
      */
     protected $fillable = [
-        'titulo', 'texto', 'palavra_chave','imagem', 'tipo_texto'
+        'titulo', 'texto', 'palavra_chave','imagem', 'tipo_texto','titulo_conv'
     ];
 
     /**

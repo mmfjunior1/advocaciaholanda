@@ -45,12 +45,6 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-    	if ($e instanceof CustomException || $e->getFile()) {
-    		if(strstr($e->__toString(),'MethodNotAllowedHttpException'))
-    		{
-    			return redirect("/");
-    		}
-    	}
         return parent::render($request, $e);
     }
 }

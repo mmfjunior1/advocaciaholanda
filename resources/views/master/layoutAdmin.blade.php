@@ -12,19 +12,19 @@
     <title>@yield('title')</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{url('/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="{{url('/css/ie10-viewport-bug-workaround.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/css/dashboard.css" rel="stylesheet">
+    <link href="{{url('/css/dashboard.css')}}" rel="stylesheet">
     
-    <link href="/css/jquery-ui.css" rel="stylesheet">
+    <link href="{{url('/css/jquery-ui.css')}}" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets//js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/js/ie-emulation-modes-warning.js"></script>
+    <script src="{{url('/js/ie-emulation-modes-warning.js')}}"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -105,15 +105,15 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/js/vendor/jquery.min.js"></script>
-    <script src="/js/vendor/jquery-ui.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <script src="{{url('/js/vendor/jquery.min.js')}}"></script>
+    <script src="{{url('/js/vendor/jquery-ui.js')}}"></script>
+    <script src="{{url('/js/bootstrap.min.js')}}"></script>
     <script>window.jQuery || document.write('<script src="/js/vendor/jquery.min.js"><\/script>')</script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="/js/vendor/holder.min.js"></script>
+    <script src="{{url('/js/vendor/holder.min.js')}}"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/js/ie10-viewport-bug-workaround.js"></script>
-    <script src="/js/holanda.js"></script>
+    <script src="{{url('/js/ie10-viewport-bug-workaround.js')}}"></script>
+    <script src="{{url('/js/holanda.js')}}"></script>
     <script>
     
     $(function() {

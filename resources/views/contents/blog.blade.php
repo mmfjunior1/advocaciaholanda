@@ -20,7 +20,7 @@
 		                <li>
 		                	<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{Helpers::dateFormat($dados['created_at'])}}<br>
 							<i class="fa fa-chevron-right"></i>
-								<a href="{{url('/')}}/noticias/{{Helpers::parseTitleInURL($dados['titulo'])}}.html">{{$dados['titulo']}}</a>
+								<a href="{{secure_url('/')}}/noticias/{{$dados['titulo_conv']}}.html">{{$dados['titulo']}}</a>
 						</li>
 		            <?php 
 		            		}
@@ -41,7 +41,7 @@
 		                <li>
 		                	<i class="fa fa-calendar" aria-hidden="true"></i>&nbsp;{{Helpers::dateFormat($dados['created_at'])}}<br>
 							<i class="fa fa-chevron-right"></i>
-								<a href="{{url('/')}}/noticias/{{Helpers::parseTitleInURL($dados['titulo'])}}.html">{{$dados['titulo']}}</a>
+								<a href="{{secure_url('/')}}/noticias/{{$dados['titulo_conv']}}.html">{{$dados['titulo']}}</a>
 						</li>
 		            <?php 
 		            		}
@@ -64,14 +64,14 @@
         			</div>
 					<div>
 						<h3 style="text-align: center;">
-	        				<a href="{{url('/')}}/noticias/{{Helpers::parseTitleInURL($dados['titulo'])}}.html" target="_blank" style="color:rgb(11, 4, 112)">
+	        				<a href="{{secure_url('/')}}/noticias/{{Helpers::parseTitleInURL($dados['titulo'])}}.html" target="_blank" style="color:rgb(11, 4, 112)">
 	        					{{$dados['titulo']}}                            
 							</a>
 						</h3>
 					</div>
 	        		<div>
 	        			<p>
-	        				<img alt="{{$dados['titulo']}}" src="{{url($dados['imagem'])}}" style="width: 100%;">
+	        				<img alt="{{$dados['titulo']}}" src="{{secure_url($dados['imagem'])}}" style="width: 100%;">
 	        			</p>	
 					</div>
        			</div>-->

@@ -57,9 +57,9 @@ class BlogController extends BaseController
     
     public function noticias($title = "")
     {
-    	$title			= trim(str_replace(array("-",".html")," ",$title));
+    	$title			= trim(str_replace(array(".html")," ",$title));
     	
-    	$resultSet		= Texto::select('*')->where('titulo','=',''.$title.'')->get();
+    	$resultSet		= Texto::select('*')->where('titulo_conv','=',''.$title.'')->get();
     	
     	$noticia		= $resultSet[0];
     	

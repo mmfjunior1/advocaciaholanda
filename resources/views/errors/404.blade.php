@@ -98,7 +98,7 @@
 	<div class="container">
 	    <h2>Ops! Página não econtrada!</h2>
 		<p>Tem certeza que você veio para a página certa?</p>
-		<p><a href ="{{url('/')}}" style="background:#E92922" class="btn btn-danger">Ir para a páina principal </a></p>
+		<p><a href ="{{url('/')}}" style="background:#E92922" class="btn btn-danger">Ir para a página principal </a></p>
 	</div>
 </section>
 

@@ -6,14 +6,15 @@
     <meta content="" name="description">
     <meta content="" name="author">
     <link href="../../favicon.ico" rel="icon">
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <title>Holanda</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{secure_url('/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="{{secure_url('/css/ie10-viewport-bug-workaround.css')}}" rel="stylesheet">
     
     <!-- Custom styles for this template -->
     <!-- <link rel="stylesheet" href="signin.css">-->
@@ -63,7 +64,7 @@
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/js/ie-emulation-modes-warning.js"></script>
+    <script src="{{secure_url('/js/ie-emulation-modes-warning.js')}}"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -77,21 +78,37 @@
     <div class="container">
 
       <form class="form-signin" action="/admin/login" method="post">
-      	<input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
-        <h2 class="form-signin-heading">Por favor, informe suas credenciais</h2>
-        <label class="sr-only" for="inputEmail">Login</label>
-        <input type="login" autofocus="" required="" placeholder="Login" name="login" class="form-control" id="inputEmail">
-        <label class="sr-only" for="inputPassword">Senha</label>
-        <input type="password" required="" placeholder="Senha" class="form-control" name="password" id="inputPassword">
-        
-        <button type="submit" class="btn btn-lg btn-primary btn-block">Entrar</button>
+		
+			<input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
+			<h2 class="form-signin-heading">Por favor, informe suas credenciais</h2>
+			<div class="row">
+				<div class="col-md-12">
+					<label class="sr-only" for="inputEmail">Login</label>
+					<input type="login" autofocus="" required="" placeholder="Login" name="login" class="form-control" id="inputEmail">
+				</div>
+			</div>
+			<div class="row">
+				<br>
+				<div class="col-md-12">
+					<label class="sr-only" for="inputPassword">Senha</label>
+					<input type="password" required="" placeholder="Senha" class="form-control" name="password" id="inputPassword">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="g-recaptcha" style="display: inline-block;margin-left:15%;" data-sitekey="6LeQbbQUAAAAABGPJDlPMRoUr9STDX-ibOyWg7qY" data-callback="verifyCallback"></div>
+				</div>
+			</div>
+			<br>
+			<button type="submit" class="btn btn-lg btn-primary btn-block">Entrar</button>
+		
       </form>
 
     </div> <!-- /container -->
 
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="{{secure_url('/js/ie10-viewport-bug-workaround.js')}}"></script>
   
 
 </body></html>

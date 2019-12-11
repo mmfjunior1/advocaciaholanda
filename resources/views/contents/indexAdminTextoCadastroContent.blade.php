@@ -62,9 +62,10 @@
 		<form name="formCadtextos" id="formCadtextos" class="formCad" action="/admin/textos/gravar" method="post" enctype="multipart/form-data">
           	<input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
           	<div class="form-group">
-          		@if(file_exists(@$search->imagem))
+			    @if (isset($search)) 
+          		@if(file_exists('storage/public/' . $search->imagem))
           			<div style="width:100%;border:1px solid;">
-          				<img src="/{{$search->imagem}}" style="width: 100%" />
+          				<img src="{{ secure_asset('storage/public/' . $search->imagem) }}" style="width: 100%" />
           				<input type="hidden" value="{{$search->imagem}}" name="imagem_atual" id="imagem_atual">
           			</div>
           			<br>
@@ -74,6 +75,10 @@
           			<label>Imagem de cabeçalho do texto</label>
           			<input type="file" placeholder="Você pode incluir uma imagem de cabeçalho" name="imagem" id="imagem">
           		@endif
+				@else
+				<label>Imagem de cabeçalho do texto</label>
+          			<input type="file" placeholder="Você pode incluir uma imagem de cabeçalho" name="imagem" id="imagem">
+				@endif
           	</div>
           	<hr>
           	<div class="form-group">

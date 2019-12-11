@@ -5,6 +5,7 @@
 <meta http-equiv="content-language" content="pt-br" />
 <meta name="description" content="" />
 <meta name="author" content="Mario Miranda Fernandes Junior" >
+<meta name="keywords" content="casa, apartamento, loft, terreno, shima, sobrado" />
 <title>@yield('title')</title>
 
 

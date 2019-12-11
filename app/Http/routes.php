@@ -119,7 +119,7 @@ Route::post('/obrigado', function () {
 	return view('contents.sucessoContent');
 });
 
-Route::post("logonSistema",							'LoginController@login');
+// Route::post("logonSistema",							'LoginController@login');
 
 Route::any("falha"		,							'LoginController@falha' );
 

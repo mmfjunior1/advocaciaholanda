@@ -37,22 +37,30 @@ class LoginController extends BaseController
     		 
     		return redirect()->intended('painelCliente');
     	}
-    	return redirect('falha');
+    	return redirect()->secure('falha');
     }
     
 	public function loginAdmin( Request $request )
     {
-    	$password	= ($request->password);
-    	$email		= $request->login;
-    	
+		$password	= $request->password;
+		$email		= $request->login;
+		if($_SERVER['SERVER_PORT'] != '8080') {
+			$recap      = $_POST['g-recaptcha-response'];
+			$resposta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LeQbbQUAAAAAMlNIrBoV-88gzWG4AmW40RKYvj7&response=" . $recap . "&remoteip=" . $_SERVER['REMOTE_ADDR']);
+			$resposta = json_decode($resposta);
+			
+			if (!$resposta->success) {
+				return redirect()->secure('/admin/sigin');
+			}
+		}
     	if( auth()->guard('administrator')->attempt(['login' => $email, 'password' => $password]))
     	{
     		//return redirect()->intended('/admin');
-    		return redirect('/admin');
+    		return redirect()->secure('/admin');
     	}
     	
     	//return redirect()->intended('/admin/sigin');
-    	return redirect('/admin/sigin');
+    	return redirect()->secure('/admin/sigin');
     	//return view('contents.indexContentFalhaLogon');
     }
     function loginIndexAdmin(Request $request)
@@ -62,14 +70,14 @@ class LoginController extends BaseController
     public function logout( Request $request )
     {
     	Auth::logout();
-    	return redirect('/');
+    	return redirect()->secure('/');
     }
     
     public function logoutAdmin( Request $request )
     {
     	auth()->guard('administrator')->logout();
     	//return redirect()->intended('/admin/sigin');
-    	return redirect('/admin/sigin');
+    	return redirect()->secure('/admin/sigin');
     }
     
     function falha()

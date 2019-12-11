@@ -4,7 +4,7 @@
 <!-- Jumbotron -->
       <br>
       
-      <div class="jumbotron testeteste"  style="background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.30)),url({{asset('images/holanda-advogados-3.jpg')}})  ">
+      <div class="jumbotron testeteste"  style="background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.30)),url({{secure_asset('images/holanda-advogados-3.jpg')}})  ">
         <!--<h1>Áreas de Atuação</h1>
         <p>Consulte abaixo as áreas de atuação.</p>-->
         <!--<a class="btn btn-lg btn-default" href="/contato" role="button">Entre em contato</a></p>-->
@@ -48,7 +48,7 @@
                     </div>
                 </div>
               </div>
-              <hr>
+		<hr>
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingTrabalhista">
                     <h4 class="panel-title">
@@ -69,7 +69,7 @@
                     </div>
                 </div>
               </div>
-              <hr>
+		<hr>
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingTrib">
                     <h4 class="panel-title">
@@ -100,12 +100,12 @@
                     </div>
                 </div>
               </div>
-              <hr>
+		<hr>
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingContratual">
                     <h4 class="panel-title">
                         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#contratual" aria-expanded="true" aria-controls="contratual">
-                            <!--<i class="more-less glyphicon glyphicon-plus"></i>-->
+                    <!--        <i class="more-less glyphicon glyphicon-plus"></i>-->
                             Contratual
                         </a>
                     </h4>
@@ -116,12 +116,12 @@
                     </div>
                 </div>
               </div>
-              <hr>
+		<hr>
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingImob">
                     <h4 class="panel-title">
                         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#imobiliario" aria-expanded="true" aria-controls="imobiliario">
-                            <!--<i class="more-less glyphicon glyphicon-plus"></i>-->
+                    <!--        <i class="more-less glyphicon glyphicon-plus"></i>-->
                             Imobiliário
                         </a>
                     </h4>
@@ -135,7 +135,7 @@
                     </div>
                 </div>
               </div>
-              <hr>
+		<hr>
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingPrevi">
                     <h4 class="panel-title">
@@ -154,35 +154,14 @@
                               <li><i class="fa fa-check"></i>&nbsp;Elaboração de recursos administrativos em cobranças e enquadramentos indevidos</li>
                               <li><i class="fa fa-check"></i>&nbsp;Recuperação de créditos</li>
                               <li><i class="fa fa-check"></i>&nbsp;Elaboração de pareceres</li>
-                              <li><i class="fa fa-check"></i>&nbsp;Regimes Especiais</li>
-                              <li><i class="fa fa-check"></i>&nbsp;Regimes Especiais</li>
                               <li><i class="fa fa-check"></i>&nbsp;<i>Due Diligence</i></li>
                               
                           </ul>
                     </div>
                 </div>
               </div>
-              <hr>
-              <div class="panel panel-default">
-                <div class="panel-heading" role="tab" id="headingCons">
-                    <h4 class="panel-title">
-                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#consumidor" aria-expanded="true" aria-controls="consumidor">
-                            <!--<i class="more-less glyphicon glyphicon-plus"></i>-->
-                            Consumidor
-                        </a>
-                    </h4>
-                </div>
-                <div id="consumidor" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingCons">
-                    <div class="panel-body">
-                         <ul style="list-style: none;margin-left:-40px">
-                            <li><i class="fa fa-check"></i>&nbsp;Assessoria jurídica em processos administrativos e judiciais, como multas e penalidades administrativas</li>
-                            <li><i class="fa fa-check"></i>&nbsp;Assessoria consultiva na prevenção de demandas consumeristas</li>
-                            <li><i class="fa fa-check"></i>&nbsp;Assessoria na elaboração e aplicação das normas em contratos relacionados à relação de consumo</li>
-                        </ul>
-                    </div>
-                </div>
-              </div>
-              <hr>
+		
+		<hr>
           </div><!-- panel-group -->
       </div>
     </div><!-- container -->

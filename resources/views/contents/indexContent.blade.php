@@ -3,7 +3,7 @@
 @section('content')
 <!-- Jumbotron -->
       <br>
-      <div class="jumbotron testeteste"  style="background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.30)),url({{asset('images/holanda-advogados-4.jpg')}})  ">
+      <div class="jumbotron testeteste"  style="background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.30)),url({{secure_asset('images/holanda-advogados-4.jpg')}})  ">
         <h1>O Escritório</h1>
         <p class="lead">Localizado na cidade de Atibaia, nosso escritório está estruturado para atender nossos clientes de forma especializada, sempre buscando a prestação de serviços jurídicos com excelência.</p>
         <p>Com qualidade e experiência, buscamos o êxito de nossos clientes no mais diversos litígios e controvérsias.</p>

@@ -26,7 +26,7 @@
 	                <h2 style="color:#fff">Contato</h2>
                   <p style="font-weight: 200">Ligue para <strong>(11) 2427-5033</strong> ou preencha o formulário abaixo.</p>  
   				<fieldset>
-						<form action="{{url('/obrigado')}}" method="post" id="formContato">
+						<form action="{{secure_url('/obrigado')}}" method="post" id="formContato">
 						<input type="hidden" name="_token" value="<?php echo csrf_token() ?>">
                             <div class="row">
                                 <div class="form-group col-sm-7">
@@ -62,11 +62,22 @@
 	</div>
 
 </section>
-<div class="titulo"><h2>Endereço</h2></div>
-<p>Rua José Bonifácio, 221 - Centro</p>
-<p>Atibaia/SP, Brasil</p>
-<p>CEP 12940-210</p>
-<p>Telefone: (11) 2427-5033</p>
+<section style="height:auto">
+<div class="row">
+	<div class="col-sm-12 col-md-12">
+		<div class="titulo"><h2>Endereço</h2></div>
+		<p>Rua José Bonifácio, 221 - Centro</p>
+		<p>Atibaia/SP, Brasil</p>
+		<p>CEP 12940-210</p>
+		<p>Telefone: (11) 2427-5033</p>
+	</div>
+	<!--<div class="col-sm-6 col-md-6">
+		<div class="titulo"><h2>Trabalhe conosco</h2></div>
+		<p>Envie-nos seus dados para se candidatar a futuras vagas de emprego em nosso escritório.</p>
+		<p><button style="background:#fff;color:#555555" type="button" onclick="createCurriculum()" class="btn btn-default" >&nbsp;Cadastre-se</button></p>
+	</div>-->
+</div>
+</section>
 <!-- 
 <section class="content" id="section-introduction">
 	<div class="container">

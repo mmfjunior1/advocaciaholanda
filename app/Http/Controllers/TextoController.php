@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Http\Request;
 use App\Texto;
 use Validator;
+use Storage;
 use Hash;
 class TextoController extends BaseController
 {
@@ -92,14 +93,14 @@ class TextoController extends BaseController
     			
     		$nomeArquivo							= md5($obj->getClientOriginalName().time());
     			
-    		$caminhoArquivo							= 'imagemBlog/'.$nomeArquivo.'.'.$ext;
+    		$caminhoArquivo							= 'imagemBlog/'  .$nomeArquivo.'.'.$ext;
     			
     		$arrayFotos['foto'.$qtdArquivosValidos] = $caminhoArquivo;
     			
     		try
     		{
     		
-   				$obj->move('imagemBlog',$nomeArquivo.'.'.$ext);
+   				$obj->move('imagemBlog', $nomeArquivo.'.'.$ext);
    				//resize
    				$tamanhoImagem			= getimagesize($caminhoArquivo);
     				
@@ -130,10 +131,14 @@ class TextoController extends BaseController
     					imagecopyresized($thumb, $source, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
     					
     					imagejpeg($thumb,$caminhoArquivo);
-    				}
-    			}
-    				
-    			return $caminhoArquivo;
+					}
+				}
+				Storage::disk('public')->put(
+					$nomeArquivo.'.'.$ext,
+					file_get_contents($caminhoArquivo)
+				);
+				unlink($caminhoArquivo);
+    			return $nomeArquivo.'.'.$ext;
     	
     		}
     		catch(\Exception $e)
@@ -142,7 +147,7 @@ class TextoController extends BaseController
     		}
     	}
     	
-    	return $caminhoArquivo;
+    	return $nomeArquivo.'.'.$ext;
     }
     
     public function excluirImagem(Request $request)
@@ -201,7 +206,10 @@ class TextoController extends BaseController
     	unset($dados['_token'],$dados['imagem_atual']);
     	
 
-        $dados['titulo']   = trim($dados['titulo']);
+        $dados['titulo']            = trim($dados['titulo']);
+        
+        $dados['titulo_conv']       = str_replace(array(",",".", "-","_",":","/","\\","@","#","[","]","{","}","?","=","+","$","%","&","*","(",")"), "", $dados['titulo']);
+        $dados['titulo_conv']       = str_replace(" ","-", $dados['titulo_conv']);
         
     	if($validator->fails())
     	{
@@ -224,7 +232,7 @@ class TextoController extends BaseController
 	    		{
 	    			$dados['imagem']	= $gravaImagem;
 	    		}
-	    		
+	    		$dados['texto'] = str_ireplace(array('<?', '<?php', '<script', 'onclick', 'onchange', 'onblur','onfocus','onmouseover', 'onmouseout', 'onkeydown', 'onload'), '', $dados['texto']);
 	    		$create	= Texto::create($dados);
 	    			    		
 	    		return response()->json(['msg'=>'<strong>Operação concluída</strong>','statusOperation'=>true,'id'=>$create->id]);
@@ -239,7 +247,9 @@ class TextoController extends BaseController
     	try
     	{
     		
-    		$gravaImagem	= $this->gravaImagem($request);
+			$gravaImagem	= $this->gravaImagem($request);
+			
+			$dados['texto'] = str_ireplace(array('<?', '<?php', '<script', 'onclick', 'onchange', 'onblur','onfocus','onmouseover', 'onmouseout', 'onkeydown', 'onload'), '', $dados['texto']);
     		
     		if($gravaImagem)
     		{

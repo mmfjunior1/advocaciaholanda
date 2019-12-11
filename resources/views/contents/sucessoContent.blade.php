@@ -2,7 +2,7 @@
 
 @section('content')
 
-@section('title', "Agradecemos seu contato - Imobiliaria Shima")
+@section('title', "Agradecemos seu contato - Holanda Advogados")
 <style>
 	.preco  {
     color: #E92922 !important;
@@ -82,7 +82,7 @@
 	<div class="container">
 	    <h2>Agradecemos o seu contato! &nbsp;<!--<i class="fa fa-thumbs-o-up"></i>--></h2>
 		<p>Seu contato é muito importante para nós. Responderemos em breve!</p>
-		<p><a href ="/" style="background:#E92922" class="btn btn-danger">Ir para a páina principal </a></p>
+		<p><a href ="/" style="background:#E92922" class="btn btn-danger">Ir para a página principal </a></p>
 	</div>
 	<br>
 	<br>

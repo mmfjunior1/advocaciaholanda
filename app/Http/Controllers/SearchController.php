@@ -63,7 +63,7 @@ class SearchController extends BaseController
     
     public function enviaCurriculo( Request $request)
     {
-
+        exit;
         $messages   = array(
                 'nome.required'             =>'O campo <strong>nome</strong> é obrigatório.',
                 'nome.min'                  =>'O campo <strong>nome</strong> deve conter no mínimo :min caracteres.',
